@@ -1,12 +1,15 @@
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 import './LandingPage.scss'
 
 function LandingPage() {
 
   return (
-    <main>
-      <h1>Welcome</h1>
-    </main>
+    <><Navbar />
+      <main>
+        The body
+      </main>
+    </>
   )
 
 }
