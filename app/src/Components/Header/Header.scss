@@ -1,1 +1,20 @@
 @import '/src/styles/shared';
+
+nav.navbar {
+    background-color: $background;
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+
+
+@media screen and (max-width: $sm-max) {
+    nav.navbar {
+
+        .menu-toggle {
+            display: block;
+        }
+    }
+}
