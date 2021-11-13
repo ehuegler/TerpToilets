@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
 import LandingPage from './Components/LandingPage/LandingPage';
+import RatingsPage from './Components/RatingsPage/RatingsPage';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/ratings" element={<RatingsPage />} />
         </Routes>
       </BrowserRouter>
     </div>

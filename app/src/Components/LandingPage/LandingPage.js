@@ -5,9 +5,10 @@ import './LandingPage.scss'
 function LandingPage() {
 
   return (
-    <><Header />
+    <>
+      <Header />
       <main>
-        The body
+        Landing Page
       </main>
     </>
   )

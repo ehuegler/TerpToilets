@@ -10,16 +10,16 @@ function Header() {
     }
 
     return (
-        <Navbar bg="light" expand="md" expanded={navActive}>
+        <Navbar expand="md" expanded={navActive}>
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 <div className={navActive ? "menu-toggle active" : "menu-toggle"} onClick={toggleNav}>
                     <i className={navActive ? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Nav className="">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/ratings">Ratings</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
