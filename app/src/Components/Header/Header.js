@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './Header.scss'
 
 function Header() {
@@ -20,6 +21,7 @@ function Header() {
                     <Nav className="">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/ratings">Ratings</Nav.Link>
+                        <Link to="/ratings" className="nav-link">Rate</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
