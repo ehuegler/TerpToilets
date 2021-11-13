@@ -1,6 +1,13 @@
 // define the max widths
-$screen-sm-max: 776px;
-$screen-md-max: 1200px;
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+$xl-min: 1200px;
+$xxl-min: 1400px;
 
 // have the min widths for media queries
-$screen-md-min: $screen-sm-max + 1;
+$xs-max: $sm-min - 1;
+$sm-max: $md-min - 1;
+$md-max: $lg-min - 1;
+$lg-max: $xl-min - 1;
+$xl-max: $xxl-min - 1;
