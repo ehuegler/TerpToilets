@@ -8,7 +8,7 @@ import styles from '../styles/components/Home.module.scss'
 import SmallReview from '../components/SmallReview'
 
 export default function Home() {
-  const reviews = [{}, {}];
+  const reviews = [1, 2, 3];
 
   return (
     <div className={styles.container}>
@@ -30,7 +30,7 @@ export default function Home() {
             <h3>Current Top Bathrooms</h3>
             {
               reviews.map((review) => (
-                <SmallReview/>
+                <SmallReview key={review}/>
               ))
             }
           </Callout>
