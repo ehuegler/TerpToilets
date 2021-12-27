@@ -1,7 +1,25 @@
 
+// Variables
+$header-height: 56px;
+
 // Colors
 $red: #e21833;
 $white: #fff;
+$black: #222;
+$background: #f4f4f4;
+$background-dark: #ececec;
 
 // Fonts
 $crimson: 'Crimson Pro', serif;
+
+// Breakpoints
+$xs-max: 575px;
+$sm-min: 576;
+$sm-max: 767px;
+$md-min: 768px;
+$md-max: 991px;
+$lg-min: 992px;
+$lg-max: 1199px;
+$xl-min: 1200px;
+$xl-max: 1399px;
+$xxl-min: 1400px;

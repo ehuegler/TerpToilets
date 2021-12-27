@@ -1,0 +1,6 @@
+@import '../imports';
+
+.main {
+    background: $background;
+    min-height: calc(100vh - $header-height);
+}
