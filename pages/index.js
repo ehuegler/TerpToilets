@@ -3,9 +3,13 @@ import Image from 'next/image'
 import { Container } from 'react-bootstrap'
 import Header from '../components/Header'
 import Main from '../components/Main'
+import Callout from '../components/Callout'
 import styles from '../styles/components/Home.module.scss'
+import SmallReview from '../components/SmallReview'
 
 export default function Home() {
+  const reviews = [{}, {}];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,10 +25,18 @@ export default function Home() {
           <p className={styles.welcome_para}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam ratione nam dolores dolore ad accusamus consequatur qui dolorum debitis numquam magnam harum natus ducimus cupiditate repellat in aut animi, quas enim alias pariatur quaerat minima tenetur? Qui, nemo eligendi.
           </p>
+
+          <Callout>
+            <h3>Current Top Bathrooms</h3>
+            {
+              reviews.map((review) => (
+                <SmallReview/>
+              ))
+            }
+          </Callout>
+
+
         </div>
-
-        
-
       </Main>
 
     </div>
