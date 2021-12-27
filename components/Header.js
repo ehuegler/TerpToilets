@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import Link from 'next/link'
-import styles from '../styles/Header.module.scss'
+import styles from '../styles/components/Header.module.scss'
+import Button from '/components/Button.js'
 
 export default function Header() {
     const [nav, setNav] = useState(false)
@@ -18,13 +19,13 @@ export default function Header() {
                         Toilet UMD
                     </Navbar.Brand>
                     <div className={nav ? styles.menu_toggle : styles.menu_toggle} onClick={toggleNav}>
-                        <i className={nav ? "fas fa-times" : "fas fa-bars"}></i>
+                        <i className={nav ? `fas fa-times` : `fas fa-bars`}></i>
                     </div>
                     <Navbar.Collapse className={styles.collapse} onClick={toggleNav}>
                         <Nav>
-                            <Link href="/"><a className='nav-link'>Home</a></Link>
-                            <Link href="/"><a className='nav-link'>Search</a></Link>
-                            <Link href="/"><a className='nav-link'>Post</a></Link>
+                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Home</a></Link>
+                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Search</a></Link>
+                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Post</a></Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
