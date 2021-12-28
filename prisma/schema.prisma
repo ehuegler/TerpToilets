@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model public_Bathrooms {
+  id             Int              @id(map: "Bathrooms_pk") @default(dbgenerated("nextval('\"public.Bathrooms_id_seq\"'::regclass)"))
+  building       String           @db.VarChar(255)
+  roomnum        String           @db.VarChar(255)
+  description        String           @db.VarChar(255)
+  public_Reviews public_Reviews[]
+
+  @@map("public.Bathrooms")
+}
+
+model public_Reviews {
+  id               Int              @id(map: "Reviews_pk") @default(dbgenerated("nextval('\"public.Reviews_id_seq\"'::regclass)"))
+  user             String           @db.VarChar(255)
+  created          DateTime         @db.Timestamp(6)
+  bathroom         Int
+  message          String           @db.VarChar(255)
+  rating           Float
+  author           String?          @db.VarChar(255)
+  public_Bathrooms public_Bathrooms @relation(fields: [bathroom], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Reviews_fk0")
+
+  @@map("public.Reviews")
+}

@@ -1,10 +1,9 @@
 import '../styles/globals.scss'
-import Head from 'next/head'
 
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <Component {...pageProps} />
-  )
-}
+  );
+};
 
-export default MyApp
+export default App;
