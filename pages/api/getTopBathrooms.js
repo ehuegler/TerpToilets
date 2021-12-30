@@ -1,6 +1,6 @@
 import prisma from '../../lib/prisma'
 
-export default async (req, res) => {
+export default async function handler(req, res) {
     if (req.method === 'GET') {
         // Process a GET request
 
@@ -25,6 +25,7 @@ export default async (req, res) => {
                     id: bathroom.bathroomId
                 },
                 select: {
+                    id: true,
                     name: true,
                     roomnum: true,
                     description: true,
@@ -32,6 +33,11 @@ export default async (req, res) => {
                     stalls: true,
                     urinals: true,
                     shower: true,
+                    pictures: {
+                        select: {
+                            publicId: true,
+                        },
+                    },
                     building: {
                         select: {
                             code: true,
@@ -40,7 +46,7 @@ export default async (req, res) => {
                     }
                 }
             })
-            return {...info, rating: bathroom._avg.rating}
+            return { ...info, rating: bathroom._avg.rating }
         })
 
         res.status(200).json(await Promise.all(topBathrooms));

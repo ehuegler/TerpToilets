@@ -9,9 +9,9 @@ datasource db {
 }
 
 model Bathrooms {
-  id          Int       @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
-  building    Buildings @relation(fields: [buildingId], references: [id])
+  building    Buildings  @relation(fields: [buildingId], references: [id])
   buildingId  Int
   roomnum     String?
   description String?
@@ -21,6 +21,7 @@ model Bathrooms {
   sinks       Int?
   shower      Boolean?
   reviews     Reviews[]
+  pictures    Pictures[]
 }
 
 enum Gender {
@@ -38,19 +39,30 @@ model Buildings {
 }
 
 model Reviews {
-  id         Int       @id @default(autoincrement())
-  createdAt  DateTime  @default(now())
-  bathroom   Bathrooms @relation(fields: [bathroomId], references: [id])
+  id         Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
+  bathroom   Bathrooms  @relation(fields: [bathroomId], references: [id])
   bathroomId Int
-  user       Users     @relation(fields: [userId], references: [id])
+  user       Users      @relation(fields: [userId], references: [id])
   userId     Int
   author     String?
   message    String?
   rating     Int
+  pictures   Pictures[]
 }
 
 model Users {
   id      Int       @id @default(autoincrement())
   user    String
   reviews Reviews[]
+}
+
+model Pictures {
+  id       Int    @id @default(autoincrement())
+  publicId String
+
+  Reviews     Reviews?   @relation(fields: [reviewId], references: [id])
+  reviewId    Int?
+  Bathrooms   Bathrooms? @relation(fields: [bathroomsId], references: [id])
+  bathroomsId Int?
 }

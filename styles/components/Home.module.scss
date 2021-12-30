@@ -1,19 +1,5 @@
 @import '../imports';
 
-.welcome {
-    
-}
-
 .welcome_para {
     text-indent: 2em;
-}
-
-.indent {
-    padding: 20px 10%;
-}
-
-@media screen and (max-width: $xs-max) {
-    .indent {
-        padding: 20px 0;
-    }
 }
