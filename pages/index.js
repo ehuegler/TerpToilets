@@ -2,18 +2,17 @@ import Head from 'next/head'
 import Callout from '../components/Callout'
 import Main from '../components/Main'
 import Header from '../components/Header'
-import SmallReview from '../components/SmallReview'
 import styles from '../styles/components/Home.module.scss'
-import prisma from '../lib/prisma'
+import BathroomSummary from '../components/BathroomSummary'
 
 export async function getServerSideProps() {
-  const result = await prisma.public_Bathrooms.findMany()
-  const data = JSON.stringify(result)
-  return { props: { data } }
+  const result = await fetch('http://localhost:3000/api/getTopBathrooms')
+  const topReviews = JSON.stringify(await result.json())
+  return { props: { topReviews } }
 }
 
-export default function Blog({ data }) {
-  const reviews = JSON.parse(data);
+export default function Blog({ topReviews }) {
+  const reviews = JSON.parse(topReviews)
 
   return (
     <>
@@ -34,7 +33,7 @@ export default function Blog({ data }) {
             <h3>Current Top Bathrooms</h3>
             {
               reviews.map((bathroom) => (
-                <SmallReview key={bathroom.id} review={bathroom}/>
+                <BathroomSummary bathroom={bathroom} />
               ))
             }
           </Callout>

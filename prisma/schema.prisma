@@ -11,10 +11,30 @@ datasource db {
 model Bathrooms {
   id          Int       @id @default(autoincrement())
   name        String
-  building    String
-  roomnum     String
+  building    Buildings @relation(fields: [buildingId], references: [id])
+  buildingId  Int
+  roomnum     String?
   description String?
+  gender      Gender?
+  stalls      Int?
+  urinals     Int?
+  sinks       Int?
+  shower      Boolean?
   reviews     Reviews[]
+}
+
+enum Gender {
+  Male
+  Female
+  Neutral
+  Single_Occupancy
+}
+
+model Buildings {
+  id        Int         @id @default(autoincrement())
+  code      String
+  name      String?
+  bathrooms Bathrooms[]
 }
 
 model Reviews {
@@ -22,8 +42,15 @@ model Reviews {
   createdAt  DateTime  @default(now())
   bathroom   Bathrooms @relation(fields: [bathroomId], references: [id])
   bathroomId Int
-  user       String
+  user       Users     @relation(fields: [userId], references: [id])
+  userId     Int
   author     String?
   message    String?
   rating     Int
+}
+
+model Users {
+  id      Int       @id @default(autoincrement())
+  user    String
+  reviews Reviews[]
 }
