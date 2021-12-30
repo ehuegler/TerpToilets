@@ -8,7 +8,9 @@ export default function Header() {
     const [nav, setNav] = useState(false)
 
     const toggleNav = () => {
-        setNav(!nav)
+        if (window.innerWidth < 992) {
+            setNav(!nav)
+        }
     }
 
     return (

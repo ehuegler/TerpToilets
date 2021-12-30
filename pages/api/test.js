@@ -3,22 +3,21 @@ import prisma from '../../lib/prisma'
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         
-        const a = await prisma.bathrooms.findUnique({
+        const bathroom = await prisma.bathrooms.findUnique({
             where: {
-                id: 1
+                id: 1,
             },
-            select: {
-                _avg: {
-                    select: {
-                        reviews: {
-                            select: {rating: true}
-                        }
-                    }
-                }
-            }
+            include: {
+                reviews: {
+                    orderBy: {
+                        rating: 'desc',
+                    },
+                },
+                pictures: true,
+            },
         })
 
-        res.status(200).json(a);
+        res.status(200).json(bathroom);
     } else {
         // Handle any other HTTP method
         res.status(405).json({ error: `Method '${req.method}' Not Allowed` });

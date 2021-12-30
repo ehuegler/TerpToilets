@@ -1,13 +1,14 @@
 import styles from '../styles/components/BathroomSummary.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buildUrl, extractPublicId } from 'cloudinary-build-url'
+import { buildUrl } from 'cloudinary-build-url'
+import { cloudName, getThumbnailId } from '../lib/cloudinary'
 
 export default function BathroomSummary({ bathroom }) {
-    const publicId = bathroom.pictures.length ? bathroom.pictures[0].publicId : 'toilet-umd/placeholder_dgplgj'
-    const thumbnail = buildUrl(publicId, {
+
+    const thumbnail = buildUrl(getThumbnailId(bathroom.pictures), {
         cloud: {
-            cloudName: 'di6du2qqp'
+            cloudName: cloudName
         },
         transformations: {
             resize: {
