@@ -4,9 +4,10 @@ import Main from '../components/Main'
 import Header from '../components/Header'
 import styles from '../styles/components/Home.module.scss'
 import BathroomSummary from '../components/BathroomSummary'
+import configs from '../node_env_config'
 
 export async function getServerSideProps() {
-  const result = await fetch('http://localhost:3000/api/getTopBathrooms')
+  const result = await fetch(`${configs.api}/api/getTopBathrooms`)
   const topReviews = JSON.stringify(await result.json())
   return { props: { topReviews } }
 }

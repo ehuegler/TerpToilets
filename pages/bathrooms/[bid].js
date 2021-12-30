@@ -67,6 +67,7 @@ export default function Bathroom({ bathroom }) {
                     src={url}
                     height="300"
                     width="300"
+                    alt={`${bathroom.name} picture`}
                 />
                 <p>{bathroom.description}</p>
                 <Callout>
