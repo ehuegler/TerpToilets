@@ -9,45 +9,40 @@ datasource db {
 }
 
 model Bathrooms {
-  id          Int        @id @default(autoincrement())
-  name        String
-  building    Buildings  @relation(fields: [buildingId], references: [id])
-  buildingId  Int
-  roomnum     String?
-  description String?
-  gender      Gender?
-  stalls      Int?
-  urinals     Int?
-  sinks       Int?
-  shower      Boolean?
-  reviews     Reviews[]
-  pictures    Pictures[]
-}
-
-enum Gender {
-  Male
-  Female
-  Neutral
-  Single_Occupancy
+  id            Int        @id @default(autoincrement())
+  name          String
+  buildingId    Int
+  roomnum       String?
+  description   String?
+  gender        Gender?
+  shower        Boolean?
+  sinks         Int?
+  stalls        Int?
+  urinals       Int?
+  averageRating Float?
+  building      Buildings  @relation(fields: [buildingId], references: [id])
+  pictures      Pictures[]
+  reviews       Reviews[]
 }
 
 model Buildings {
   id        Int         @id @default(autoincrement())
-  code      String
-  name      String?
+  code      String      @unique
+  name      String
+  abrev     String?
   bathrooms Bathrooms[]
 }
 
 model Reviews {
   id         Int        @id @default(autoincrement())
   createdAt  DateTime   @default(now())
-  bathroom   Bathrooms  @relation(fields: [bathroomId], references: [id])
   bathroomId Int
-  user       Users      @relation(fields: [userId], references: [id])
   userId     Int
   author     String?
   message    String?
   rating     Int
+  bathroom   Bathrooms  @relation(fields: [bathroomId], references: [id])
+  user       Users      @relation(fields: [userId], references: [id])
   pictures   Pictures[]
 }
 
@@ -58,11 +53,17 @@ model Users {
 }
 
 model Pictures {
-  id       Int    @id @default(autoincrement())
-  publicId String
-
-  Reviews     Reviews?   @relation(fields: [reviewId], references: [id])
+  id          Int        @id @default(autoincrement())
+  publicId    String
   reviewId    Int?
-  Bathrooms   Bathrooms? @relation(fields: [bathroomsId], references: [id])
   bathroomsId Int?
+  Bathrooms   Bathrooms? @relation(fields: [bathroomsId], references: [id])
+  Reviews     Reviews?   @relation(fields: [reviewId], references: [id])
+}
+
+enum Gender {
+  Male
+  Female
+  Neutral
+  Family
 }

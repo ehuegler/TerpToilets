@@ -5,7 +5,7 @@ import { buildUrl } from 'cloudinary-build-url'
 import { cloudName, getThumbnailId } from '../lib/cloudinary'
 
 export default function BathroomSummary({ bathroom }) {
-
+    console.log(bathroom)
     const thumbnail = buildUrl(getThumbnailId(bathroom.pictures), {
         cloud: {
             cloudName: cloudName
@@ -20,17 +20,20 @@ export default function BathroomSummary({ bathroom }) {
     })
 
     return (
-        <Link href={`/bathroom/${bathroom.building.code}${bathroom.id}`}>
+        <Link href={`/bathrooms/${bathroom.id}`}>
             <a>
                 <div className={styles.summary}>
-                    <Image
-                        src={thumbnail}
-                        alt={`${bathroom.name} bathroom`}
-                        width="100"
-                        height="100"
-                    />
-                    <h4>{bathroom.name}</h4>
-                    <p>{bathroom.description}</p>
+                    <div className={styles.thumbnail}>
+                        <Image
+                            src={thumbnail}
+                            alt={`${bathroom.name} bathroom`}
+                            width="100"
+                            height="100"
+                        />
+                    </div>
+                    <div>
+                        <h4>{bathroom.name}</h4>
+                    </div>
                 </div>
             </a>
         </Link>

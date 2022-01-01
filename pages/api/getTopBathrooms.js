@@ -1,4 +1,4 @@
-import prisma from '../../lib/prisma'
+import prisma, { bathroomSummarySelect } from '../../lib/prisma'
 
 export default async function handler(req, res) {
     if (req.method === 'GET') {
@@ -24,27 +24,7 @@ export default async function handler(req, res) {
                 where: {
                     id: bathroom.bathroomId
                 },
-                select: {
-                    id: true,
-                    name: true,
-                    roomnum: true,
-                    description: true,
-                    gender: true,
-                    stalls: true,
-                    urinals: true,
-                    shower: true,
-                    pictures: {
-                        select: {
-                            publicId: true,
-                        },
-                    },
-                    building: {
-                        select: {
-                            code: true,
-                            name: true,
-                        }
-                    }
-                }
+                select: bathroomSummarySelect
             })
             return { ...info, rating: bathroom._avg.rating }
         })

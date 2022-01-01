@@ -3,7 +3,7 @@ import BathroomSummary from "../../components/BathroomSummary";
 import Callout from "../../components/Callout";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
-import prisma from "../../lib/prisma";
+import prisma, { bathroomSummarySelect } from "../../lib/prisma";
 
 
 export async function getServerSideProps(context) {
@@ -12,27 +12,7 @@ export async function getServerSideProps(context) {
     const bathrooms = await prisma.bathrooms.findMany({
         skip: start,
         take: 10,
-        select: {
-            id: true,
-            name: true,
-            roomnum: true,
-            description: true,
-            gender: true,
-            stalls: true,
-            urinals: true,
-            shower: true,
-            pictures: {
-                select: {
-                    publicId: true,
-                },
-            },
-            building: {
-                select: {
-                    code: true,
-                    name: true,
-                }
-            }
-        }
+        select: bathroomSummarySelect
     })
 
     return { props: { bathrooms } }

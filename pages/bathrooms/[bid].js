@@ -10,10 +10,11 @@ import Review from '../../components/Review'
 import Callout from '../../components/Callout'
 
 export async function getServerSideProps(context) {
+    console.log(context.query.bid)
     const slug = context.query.bid
     let id
     try {
-        id = parseInt(slug.match(/[a-zA-Z]{3}(\d+)/)[1])
+        id = parseInt(slug)
     }
     catch {
         id = null
@@ -45,7 +46,6 @@ export async function getServerSideProps(context) {
 
 
 export default function Bathroom({ bathroom }) {
-    console.log(bathroom)
     const url = buildUrl(getThumbnailId(bathroom.pictures), {
         cloud: {
             cloudName: cloudName,
