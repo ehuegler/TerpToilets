@@ -10,6 +10,9 @@ export default async function handler(req, res) {
             _avg: {
                 rating: true,
             },
+            _count: {
+                rating: true,
+            },
             orderBy: {
                 _avg: {
                     rating: "desc",
@@ -26,9 +29,8 @@ export default async function handler(req, res) {
                 },
                 select: bathroomSummarySelect
             })
-            return { ...info, rating: bathroom._avg.rating }
+            return { ...info, rating: bathroom._avg.rating, numRatings: bathroom._count.rating }
         })
-
         res.status(200).json(await Promise.all(topBathrooms));
     } else {
         // Handle any other HTTP method

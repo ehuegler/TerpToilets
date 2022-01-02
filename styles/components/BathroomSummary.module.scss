@@ -9,9 +9,30 @@
     margin: 20px 0;
 
     display: flex;
-}
 
-.thumbnail {
-    // max-width: 100px;
-    min-width: 100px;
+    .thumbnail {
+        width: 80px;
+        flex-shrink: 0;
+    }
+
+    .name  {
+        font-weight: 600;
+        line-height: 1em;
+    }
+
+    .second_line {
+        color: $gray;
+
+        .stars {
+            margin-top: -7px;
+        }
+    }
+
+    .icon_row {
+        color: $gray;
+
+        span {
+            padding-right: 15px;
+        }
+    }
 }

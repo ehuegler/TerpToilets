@@ -36,6 +36,9 @@ export async function getServerSideProps(context) {
                 orderBy: {
                     rating: order,
                 },
+                include: {
+                    pictures: true,
+                }
             },
             pictures: true,
         },
@@ -50,7 +53,13 @@ export default function Bathroom({ bathroom }) {
         cloud: {
             cloudName: cloudName,
         },
-        transformations: {},
+        transformations: {
+            resize: {
+                width: 300,
+                height: 300,
+                type: 'fill',
+            }
+        },
     })
 
     return (

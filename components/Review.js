@@ -27,7 +27,7 @@ export default function Review({ review }) {
             </div>
             <div>
                 {review.pictures.map(pic => (
-                    
+                    <></>
                 ))}
             </div>
         </div>
