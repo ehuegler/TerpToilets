@@ -1,10 +1,9 @@
 import styles from '../styles/components/Review.module.scss'
 import { Rating } from 'react-simple-star-rating'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import Image from 'next/image'
+import ReeviewImage from './ReviewImage'
 
-export default function Review({ review }) {
-    // console.log(review)
+export default function Review({ review, roomName }) {
     const date = new Date(review.createdAt)
     const dateString = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear()
 
@@ -25,9 +24,9 @@ export default function Review({ review }) {
             <div>
                 {review.message}
             </div>
-            <div>
+            <div className={styles.gallery}>
                 {review.pictures.map(pic => (
-                    <></>
+                    <ReeviewImage image={pic} key={pic.id} bathroom={roomName} />
                 ))}
             </div>
         </div>

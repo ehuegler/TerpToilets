@@ -1,0 +1,27 @@
+@import '../imports';
+
+.thumbnail {
+    display: flex;
+    justify-content: center;
+}
+
+.info {
+    margin: 0 0 20px 0;
+}
+
+.stars {
+    margin-top: -7px;
+}
+
+.rating_line {
+    color: $gray;
+}
+
+.features {
+    color: $gray;
+    margin: 10px;
+}
+
+.feature {
+    text-align: center;
+}
