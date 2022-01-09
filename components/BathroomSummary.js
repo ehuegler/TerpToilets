@@ -46,7 +46,7 @@ export default function BathroomSummary({ bathroom }) {
 
     return (
         <Link href={`/bathrooms/${bathroom.id}`}>
-            <a>
+            <a className={styles.link}>
                 <div className={styles.summary}>
                     <div className={styles.thumbnail}>
                         <Image

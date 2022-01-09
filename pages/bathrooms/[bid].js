@@ -1,5 +1,6 @@
 import styles from '../../styles/components/Bathroom.module.scss'
 import Head from 'next/head'
+import ErrorPage from 'next/error'
 import Header from '../../components/Header'
 import Main from '../../components/Main'
 import prisma from '../../lib/prisma'
@@ -14,16 +15,17 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { BiMale, BiFemale } from 'react-icons/bi'
 import { MdFamilyRestroom } from 'react-icons/md'
 import { FaToilet, FaTimes, FaShower } from 'react-icons/fa'
+import { useState } from 'react'
 
 export async function getServerSideProps(context) {
-    console.log(context.query.bid)
+
     const slug = context.query.bid
     let id
     try {
         id = parseInt(slug)
     }
     catch {
-        id = null
+        return { props: { error: true } }
     }
 
     let order;
@@ -51,16 +53,23 @@ export async function getServerSideProps(context) {
         },
     })
 
-    return { props: { bathroom } }
+    return bathroom ? { props: { bathroom } } : { props: { error: true } }
 }
 
 
-export default function Bathroom({ bathroom }) {
+export default function Bathroom({ bathroom, error }) {
+
+    if (error) {
+        console.log("hello")
+        return (<ErrorPage statusCode={404} />)
+    }
+
+    const [reviews, setReviews] = useState(bathroom.reviews)
+
     bathroom.numRatings = bathroom.reviews.length
     bathroom.rating = bathroom.reviews.reduce((a, x) => (a + x.rating), 0) / bathroom.numRatings
     bathroom.rating = (Math.round(bathroom.rating * 10) / 10).toString().padEnd(3, '.0')
 
-    console.log(bathroom)
     const url = buildUrl(getThumbnailId(bathroom.pictures), {
         cloud: {
             cloudName: cloudName,
@@ -100,6 +109,7 @@ export default function Bathroom({ bathroom }) {
                 return <></>
         }
     }
+
 
     return (
         <>
@@ -141,9 +151,9 @@ export default function Bathroom({ bathroom }) {
                         </div>
                         <div className={styles.features}>
                             {gender()}
-                            {bathroom.stalls ? <Row><Col xs={3}  className={styles.feature}><FaToilet /><FaTimes /> {bathroom.stalls}</Col>Toilet Stalls </Row> : ''}
-                            {bathroom.urinals ? <Row><Col xs={3}  className={styles.feature}><FaToilet /><FaTimes /> {bathroom.urinals}</Col>Urinals </Row> : ''}
-                            {bathroom.shower && <Row><Col xs={3}  className={styles.feature}><FaShower /></Col>Has a Shower</Row>}
+                            {bathroom.stalls ? <Row><Col xs={3} className={styles.feature}><FaToilet /><FaTimes /> {bathroom.stalls}</Col>Toilet Stalls </Row> : ''}
+                            {bathroom.urinals ? <Row><Col xs={3} className={styles.feature}><FaToilet /><FaTimes /> {bathroom.urinals}</Col>Urinals </Row> : ''}
+                            {bathroom.shower && <Row><Col xs={3} className={styles.feature}><FaShower /></Col>Has a Shower</Row>}
                         </div>
                         <div>
                             {bathroom.description}
@@ -154,8 +164,9 @@ export default function Bathroom({ bathroom }) {
 
                 <Callout>
                     <h3>Reviews:</h3>
-                    {bathroom.reviews.map(review => (
-                        <Review review={review} key={review.id} roomName={bathroom.name} />
+                    <div onClick={() => { console.log(reviews); setReviews([...reviews.reverse()]) }}>order</div>
+                    {reviews.map((review, i) => (
+                        <Review review={review} key={i} roomName={bathroom.name} />
                     ))}
                 </Callout>
             </Main>

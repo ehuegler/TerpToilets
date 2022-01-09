@@ -32,8 +32,8 @@ export default function BathroomsPage({ bathrooms }) {
                 Browse bathrooms
 
                 <Callout>
-                    {bathrooms.map(bathroom => (
-                        <BathroomSummary bathroom={bathroom} key={bathroom.id} />
+                    {bathrooms.map((bathroom, i) => (
+                        <BathroomSummary bathroom={bathroom} key={i} />
                     ))}
                 </Callout>
             </Main>

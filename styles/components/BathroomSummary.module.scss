@@ -10,6 +10,10 @@
 
     display: flex;
 
+    &:active {
+        border-width: 2px;
+    }
+
     .thumbnail {
         width: 80px;
         flex-shrink: 0;
@@ -37,4 +41,5 @@
             padding-right: 15px;
         }
     }
+
 }

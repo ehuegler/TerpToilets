@@ -33,8 +33,8 @@ export default function Blog({ topReviews }) {
           <Callout>
             <h3>Current Top Bathrooms</h3>
             {
-              reviews.map((bathroom) => (
-                <BathroomSummary bathroom={bathroom} key={bathroom.id}/>
+              reviews.map((bathroom, i) => (
+                <BathroomSummary bathroom={bathroom} key={i}/>
               ))
             }
           </Callout>

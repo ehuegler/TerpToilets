@@ -18,7 +18,7 @@ export default function Header() {
             <Navbar expand="lg" expanded={nav} className={styles.header}>
                 <Container>
                     <Navbar.Brand className={styles.brand}>
-                        Toilet UMD
+                        TOILET UMD
                     </Navbar.Brand>
                     <div className={nav ? styles.menu_toggle : styles.menu_toggle} onClick={toggleNav}>
                         {nav ? <FaTimes/> : <FaBars/>}

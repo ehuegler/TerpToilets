@@ -25,8 +25,8 @@ export default function Review({ review, roomName }) {
                 {review.message}
             </div>
             <div className={styles.gallery}>
-                {review.pictures.map(pic => (
-                    <ReeviewImage image={pic} key={pic.id} bathroom={roomName} />
+                {review.pictures.map((pic, i) => (
+                    <ReeviewImage image={pic} key={i} bathroom={roomName} />
                 ))}
             </div>
         </div>
