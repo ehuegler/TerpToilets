@@ -14,6 +14,13 @@ module.exports = {
       },
       fontFamily: {
         crimson: ['Crimson Pro', 'serif'],
+        nunito: ['Nunito', 'sans-serif'],
+      },
+      fontSize: {
+        none: '0px'
+      },
+      minWidth: {
+        thumbnail: '25%',
       },
     },
   },

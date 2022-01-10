@@ -16,8 +16,8 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <nav className='flex items-center flex-wrap bg-red-medium p-3 font-crimson text-white'>
+    <header className='bg-red-medium'>
+      <nav className=' container mx-auto flex items-center flex-wrap p-2 font-crimson text-white'>
         <Link href='/'>
           <a className='inline-flex items-center p-2 mr-4 '>
             <span className='text-xl font-bold uppercase tracking-wide'>
@@ -26,20 +26,20 @@ export default function Header() {
           </a>
         </Link>
         <button
-          className=' inline-flex p-3 hover:bg-red-darker rounded lg:hidden ml-auto '
+          className=' inline-flex p-3 hover:bg-red-darker rounded md:hidden ml-auto '
           onClick={handleClick}
         >
           {active ? <FaTimes /> : <FaBars />}
         </button>
         <div
           className={`${active ? '' : 'hidden'
-            }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+            }   w-full md:inline-flex md:flex-grow md:w-auto`}
         >
-          <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
+          <div className='md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto'>
             {
-              navLinks.map(link => (
-                <Link href={link[1]}>
-                  <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 font-bold items-center justify-center hover:bg-red-darker '>
+              navLinks.map((link, i) => (
+                <Link key={i} href={link[1]}>
+                  <a className='md:inline-flex md:w-auto w-full px-3 py-2 font-bold items-center justify-center hover:bg-red-darker '>
                     {link[0]}
                   </a>
                 </Link>
