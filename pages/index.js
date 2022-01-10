@@ -1,9 +1,5 @@
 import Head from 'next/head'
-import Callout from '../components/Callout'
-import Main from '../components/Main'
 import Header from '../components/Header'
-import styles from '../styles/components/Home.module.scss'
-import BathroomSummary from '../components/BathroomSummary'
 import configs from '../node_env_config'
 
 export async function getServerSideProps() {
@@ -23,23 +19,7 @@ export default function Blog({ topReviews }) {
       </Head>
 
       <Header />
-
-      <Main>
-        <div className={styles.indent}>
-          <h1 className={styles.welcome}>Welcome!</h1>
-          <p className={styles.welcome_para}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam ratione nam dolores dolore ad accusamus consequatur qui dolorum debitis numquam magnam harum natus ducimus cupiditate repellat in aut animi, quas enim alias pariatur quaerat minima tenetur? Qui, nemo eligendi.
-          </p>
-          <Callout>
-            <h3>Current Top Bathrooms</h3>
-            {
-              reviews.map((bathroom, i) => (
-                <BathroomSummary bathroom={bathroom} key={i}/>
-              ))
-            }
-          </Callout>
-        </div>
-      </Main>
+      
     </>
   )
 }
