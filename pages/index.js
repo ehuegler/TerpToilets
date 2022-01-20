@@ -34,9 +34,11 @@ export default function Blog({ bathrooms }) {
           Top Bathrooms:
         </h1>
 
-        {bathroomList.map((bathroom, i) => (
-          <BathroomSummary key={i} bathroom={bathroom}/>
-        ))}
+        <div className='md:columns-2 mt-2'>
+          {bathroomList.map((bathroom, i) => (
+            <BathroomSummary key={i} bathroom={bathroom}/>
+          ))}
+        </div>
 
       </Main>
       
