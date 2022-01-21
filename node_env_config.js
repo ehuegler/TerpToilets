@@ -5,7 +5,7 @@ const configs = {
     api: 'http://localhost:3000',
   },
   production: {
-    api: 'https://toiletumd.netlify.app',
+    api: 'https://toilet-umd.vercel.app',
   },
 }[env];
 

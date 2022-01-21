@@ -46,17 +46,17 @@ export default function Bathrooms({ bathrooms, search }) {
     }
   }, [])
 
-  const onFocus = useCallback(() => {
-    setActive(true)
-    window.addEventListener('click', onClick)
-  }, [onClick])
-
   const onClick = useCallback((event) => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
       setActive(false)
       window.removeEventListener('click', onClick)
     }
   }, [])
+
+    const onFocus = useCallback(() => {
+      setActive(true)
+      window.addEventListener('click', onClick)
+    }, [onClick])
 
   return (
     <>
