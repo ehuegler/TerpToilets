@@ -3,11 +3,17 @@ import prisma from '../../lib/prisma'
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         
-        const a = await prisma.buildings.aggregate({
-            _count: {
-                id: true
+        let a = await prisma.buildings.findMany({
+            include: {
+                _count: {
+                    select: {
+                        bathrooms: true,
+                    }
+                }
             }
         })
+
+        a = a.filter(x => x._count.bathrooms).sort((a, b) => b._count.bathrooms - a._count.bathrooms)
 
         res.status(200).json( a );
     } else {
