@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import BathroomSummary from '../components/BathroomSummary'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import configs from '../node_env_config'
 
 export async function getServerSideProps() {
-  const result = await fetch(`${configs.api}/api/getTopBathrooms`)
+  const result = await fetch(`${configs.api}/api/bathrooms`)
   const bathrooms = JSON.stringify(await result.json())
   return { props: { bathrooms } }
 }
@@ -39,6 +40,12 @@ export default function Blog({ bathrooms }) {
             <BathroomSummary key={i} bathroom={bathroom}/>
           ))}
         </div>
+
+        <Link href='/bathrooms/'>
+          <a className='bg-white p-3 rounded block text-center font-semibold drop-shadow-md'>
+            Browse All Bathrooms
+          </a>
+        </Link>
 
       </Main>
       

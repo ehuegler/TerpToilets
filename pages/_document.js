@@ -12,7 +12,7 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet" rel="stylesheet" />
 
       </Head>
-      <body>
+      <body className='bg-neutral-100'>
         <Main />
         <NextScript />
       </body>

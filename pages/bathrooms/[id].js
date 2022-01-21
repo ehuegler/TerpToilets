@@ -11,6 +11,7 @@ import buildUrl from 'cloudinary-build-url';
 import Review from '../../components/Review';
 import { useState } from 'react';
 import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
+import { FaSink, FaTimes, FaToilet } from 'react-icons/fa';
 
 
 export async function getServerSideProps(req) {
@@ -47,7 +48,7 @@ export default function BathroomPage({ bathroom, error }) {
   const [reviews, setReviews] = useState(bathroom.reviews)
   const [order, setOrder] = useState(true)
 
-  // console.log(bathroom)
+  console.log(bathroom)
 
   const url = buildUrl(getThumbnailId(bathroom.pictures), {
     cloud: {
@@ -79,7 +80,7 @@ export default function BathroomPage({ bathroom, error }) {
 
         <div className='flex flex-col sm:flex-row'>
 
-          <div className='text-none basis-[75%]'>
+          <div className='text-none basis-[75%] p-2'>
             <Image
               src={url}
               height={300}
@@ -115,11 +116,44 @@ export default function BathroomPage({ bathroom, error }) {
               {bathroom.description}
             </p>
 
+            <div className='px-8'>
+
+              {
+                bathroom.stalls ?
+                  <div className='flex items-center'>
+                    <FaToilet /> <FaTimes /> {bathroom.stalls} - Stalls
+                  </div> :
+                  <></>
+              }
+
+              {
+                bathroom.urinals ?
+                  <div className='flex items-center'>
+                    <Image
+                      src='/urinal.png'
+                      height={16}
+                      width={16}
+                    />
+                    <FaTimes /> {bathroom.urinals} - Urinals
+                  </div> :
+                  <></>
+              }
+
+              {
+                bathroom.sinks ?
+                  <div className='flex items-center'>
+                    <FaSink /> <FaTimes /> {bathroom.sinks} - Sinks
+                  </div> :
+                  <></>
+              }
+
+            </div>
+
           </div>
 
         </div>
 
-        <div className='flex justify-between mt-4'>
+        <div className='flex justify-between items-center mt-4 mb-2'>
           <h1 className='font-bold'>
             Reviews:
           </h1>
@@ -128,7 +162,7 @@ export default function BathroomPage({ bathroom, error }) {
               setReviews([...reviews.reverse()])
               setOrder(!order)
             }}
-            className='flex items-center'
+            className='flex items-center cursor-pointer bg-zinc-300 rounded p-1'
           >
             Order
             <span className='font-bold text-xl'>

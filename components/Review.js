@@ -40,27 +40,25 @@ export default function Review({ review }) {
       <div className='flex'>
 
         {review.pictures.map((pic, i) => (
-          <>
-            <div className='text-none p-1' key={i}>
-              <Image
-                className='rounded'
-                height={100}
-                width={100}
-                src={buildUrl(getId(pic.publicId), {
-                  cloud: {
-                    cloudName: cloudName
-                  },
-                  transformations: {
-                    resize: {
-                      type: 'fill',
-                      height: 300,
-                      width: 300
-                    }
+          <div className='text-none p-1' key={i}>
+            <Image
+              className='rounded'
+              height={100}
+              width={100}
+              src={buildUrl(getId(pic.publicId), {
+                cloud: {
+                  cloudName: cloudName
+                },
+                transformations: {
+                  resize: {
+                    type: 'fill',
+                    height: 300,
+                    width: 300
                   }
-                })}
-              />
-            </div>
-          </>
+                }
+              })}
+            />
+          </div>
         ))}
 
       </div>

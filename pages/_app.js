@@ -2,7 +2,9 @@ import '../styles/globals.css'
 
 const App = ({ Component, pageProps }) => {
   return (
-    <Component {...pageProps} />
+    <Component {...pageProps} 
+      className='bg-neutral-100'
+    />
   );
 };
 

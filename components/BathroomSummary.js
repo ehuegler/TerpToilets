@@ -7,7 +7,7 @@ import { cloudName, getThumbnailId } from '../lib/cloudinary'
 
 
 export default function BathroomSummary({ bathroom }) {
-  console.log(bathroom)
+  // console.log(bathroom)
 
   const rating = Math.round(bathroom.rating * 10) / 10;
 
@@ -27,7 +27,7 @@ export default function BathroomSummary({ bathroom }) {
   return (
     <Link href={`/bathrooms/${bathroom.id}`}>
       <a>
-        <section className='bg-zinc-200 p-2 rounded mb-3 flex'>
+        <section className='bg-white p-2 rounded mb-3 flex drop-shadow-md'>
           <div className='text-none flex-shrink-0'>
             <Image
               height={100}

@@ -19,6 +19,7 @@ export default async function handler(req, res) {
                 },
             },
             take: parseInt(req.query.take) || 5,
+            skip: parseInt(req.query.skip) || 0,
         })
 
         // We have the IDs now, need to get the bathroom info and the building
