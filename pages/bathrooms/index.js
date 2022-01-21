@@ -95,9 +95,11 @@ export default function Bathrooms({ bathrooms, search }) {
                   key={i}
                   onClick={() => setQuery(building.name)}
                 >
-                  <a href={`/bathrooms?filter=${building.name}`}>
-                    {building.name}
-                  </a>
+                  <Link href={`/bathrooms?filter=${building.name}`}>
+                    <a>
+                      {building.name}
+                    </a>
+                  </Link>
                 </li>
               ))}
             </ul>
