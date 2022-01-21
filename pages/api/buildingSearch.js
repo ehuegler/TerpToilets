@@ -1,6 +1,6 @@
 import { buildings } from '../../cache/data'
 
-export default (req, res) => {
+export default search = (req, res) => {
   const results = req.query.q ?
     buildings.filter(building => building.name.toLowerCase().includes(req.query.q)
       || building.code.toLowerCase().includes(req.query.q)

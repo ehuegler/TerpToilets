@@ -41,13 +41,13 @@ export async function getServerSideProps(req) {
 }
 
 export default function BathroomPage({ bathroom, error }) {
+  const [reviews, setReviews] = useState(bathroom.reviews)
+  const [order, setOrder] = useState(true)
+  
   if (error || !bathroom) {
     return <Error statusCode={404} />
   }
-
-  const [reviews, setReviews] = useState(bathroom.reviews)
-  const [order, setOrder] = useState(true)
-
+  
   console.log(bathroom)
 
   const url = buildUrl(getThumbnailId(bathroom.pictures), {
@@ -86,6 +86,7 @@ export default function BathroomPage({ bathroom, error }) {
               height={300}
               width={300}
               layout='responsive'
+              alt={`${bathroom.name} Pictured`}
             />
           </div>
 
@@ -133,6 +134,7 @@ export default function BathroomPage({ bathroom, error }) {
                       src='/urinal.png'
                       height={16}
                       width={16}
+                      alt='Urinal Icon'
                     />
                     <FaTimes /> {bathroom.urinals} - Urinals
                   </div> :

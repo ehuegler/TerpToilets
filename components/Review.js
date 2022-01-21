@@ -42,6 +42,7 @@ export default function Review({ review }) {
         {review.pictures.map((pic, i) => (
           <div className='text-none p-1' key={i}>
             <Image
+              alt={`Review Image ${i + 1}`}
               className='rounded'
               height={100}
               width={100}

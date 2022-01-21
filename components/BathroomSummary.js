@@ -34,6 +34,7 @@ export default function BathroomSummary({ bathroom }) {
               width={100}
               src={url}
               className='rounded'
+              alt={`${bathroom.name} Pictured`}
             />
           </div>
           <div className='pl-2'>
