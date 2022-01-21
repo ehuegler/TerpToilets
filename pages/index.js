@@ -1,19 +1,18 @@
 import Head from 'next/head'
-import Callout from '../components/Callout'
-import Main from '../components/Main'
-import Header from '../components/Header'
-import styles from '../styles/components/Home.module.scss'
+import Link from 'next/link'
 import BathroomSummary from '../components/BathroomSummary'
+import Header from '../components/Header'
+import Main from '../components/Main'
 import configs from '../node_env_config'
 
 export async function getServerSideProps() {
-  const result = await fetch(`${configs.api}/api/getTopBathrooms`)
-  const topReviews = JSON.stringify(await result.json())
-  return { props: { topReviews } }
+  const result = await fetch(`${configs.api}/api/bathrooms`)
+  const bathrooms = JSON.stringify(await result.json())
+  return { props: { bathrooms } }
 }
 
-export default function Blog({ topReviews }) {
-  const reviews = JSON.parse(topReviews)
+export default function Blog({ bathrooms }) {
+  const bathroomList = JSON.parse(bathrooms)
 
   return (
     <>
@@ -24,22 +23,32 @@ export default function Blog({ topReviews }) {
 
       <Header />
 
-      <Main>
-        <div className={styles.indent}>
-          <h1 className={styles.welcome}>Welcome!</h1>
-          <p className={styles.welcome_para}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam ratione nam dolores dolore ad accusamus consequatur qui dolorum debitis numquam magnam harum natus ducimus cupiditate repellat in aut animi, quas enim alias pariatur quaerat minima tenetur? Qui, nemo eligendi.
-          </p>
-          <Callout>
-            <h3>Current Top Bathrooms</h3>
-            {
-              reviews.map((bathroom) => (
-                <BathroomSummary bathroom={bathroom} key={bathroom.id}/>
-              ))
-            }
-          </Callout>
+      <Main >
+        <h1 className='text-3xl mb-4 font-bold'>
+          Welcome
+        </h1>
+        <p className='indent-6'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam deserunt soluta sunt consequuntur maiores facere odit corporis, adipisci!
+        </p>
+
+        <h1 className='font-bold mt-4'>
+          Top Bathrooms:
+        </h1>
+
+        <div className='md:columns-2 mt-2'>
+          {bathroomList.map((bathroom, i) => (
+            <BathroomSummary key={i} bathroom={bathroom}/>
+          ))}
         </div>
+
+        <Link href='/bathrooms/'>
+          <a className='bg-white p-3 rounded block text-center font-semibold drop-shadow-md'>
+            Browse All Bathrooms
+          </a>
+        </Link>
+
       </Main>
+      
     </>
   )
 }

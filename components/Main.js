@@ -1,13 +1,9 @@
-import { Container } from "react-bootstrap";
-import styles from '../styles/components/Main.module.scss'
 
 
-export default function Main({children}) {
-    return (
-        <main className={styles.main}>
-            <Container>
-                {children}
-            </Container>
-        </main>
-    )
+export default function Main({ children }) {
+  return (
+    <main className='container mx-auto p-4 md:px-[5%] lg:px-[10%] font-nunito'>
+      {children}
+    </main>
+  )
 }

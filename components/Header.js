@@ -1,37 +1,53 @@
-import { useState } from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import Link from 'next/link';
+import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'
-import Link from 'next/link'
-import styles from '../styles/components/Header.module.scss'
 
 export default function Header() {
-    const [nav, setNav] = useState(false)
 
-    const toggleNav = () => {
-        if (window.innerWidth < 992) {
-            setNav(!nav)
-        }
-    }
+  const navLinks = [
+    ['Home', '/'],
+    ['Bathrooms', '/bathrooms/']
+  ]
 
-    return (
-        <header>
-            <Navbar expand="lg" expanded={nav} className={styles.header}>
-                <Container>
-                    <Navbar.Brand className={styles.brand}>
-                        Toilet UMD
-                    </Navbar.Brand>
-                    <div className={nav ? styles.menu_toggle : styles.menu_toggle} onClick={toggleNav}>
-                        {nav ? <FaTimes/> : <FaBars/>}
-                    </div>
-                    <Navbar.Collapse className={styles.collapse} onClick={toggleNav}>
-                        <Nav>
-                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Home</a></Link>
-                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Search</a></Link>
-                            <Link href="/"><a className={`${styles.nav_link} nav-link`}>Post</a></Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </header>
-    )
-}
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+  };
+
+  return (
+    <header className='bg-red-medium'>
+      <nav className=' container mx-auto flex items-center flex-wrap p-2 font-crimson text-white'>
+        <Link href='/'>
+          <a className='inline-flex items-center p-2 mr-4 '>
+            <span className='text-xl font-bold uppercase tracking-wide'>
+              Toilet UMD
+            </span>
+          </a>
+        </Link>
+        <button
+          className=' inline-flex p-3 hover:bg-red-darker rounded md:hidden ml-auto '
+          onClick={handleClick}
+        >
+          {active ? <FaTimes /> : <FaBars />}
+        </button>
+        <div
+          className={`${active ? '' : 'hidden'
+            }   w-full md:inline-flex md:flex-grow md:w-auto`}
+        >
+          <div className='md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto'>
+            {
+              navLinks.map((link, i) => (
+                <Link key={i} href={link[1]}>
+                  <a className='md:inline-flex md:w-auto w-full px-3 py-2 font-bold items-center justify-center hover:bg-red-darker '>
+                    {link[0]}
+                  </a>
+                </Link>
+              ))
+            }
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};

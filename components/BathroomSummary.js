@@ -1,87 +1,66 @@
-import styles from '../styles/components/BathroomSummary.module.scss'
+import { Rating } from '@mui/material';
+import buildUrl from 'cloudinary-build-url'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buildUrl } from 'cloudinary-build-url'
+import { gender } from '../lib/utils';
 import { cloudName, getThumbnailId } from '../lib/cloudinary'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { FaShower, FaTimes, FaToilet } from 'react-icons/fa'
-import { BiMale, BiFemale } from 'react-icons/bi'
-import { MdFamilyRestroom } from 'react-icons/md'
-import { Rating } from 'react-simple-star-rating'
+
 
 export default function BathroomSummary({ bathroom }) {
-    bathroom.rating = (Math.round(bathroom.rating * 10) / 10).toString().padEnd(3, '.0')
-    
-    const thumbnail = buildUrl(getThumbnailId(bathroom.pictures), {
-        cloud: {
-            cloudName: cloudName
-        },
-        transformations: {
-            resize: {
-                width: 200,
-                height: 200,
-                type: "fill"
-            }
-        },
-    })
+  // console.log(bathroom)
 
-    const gender = () => {
-        switch (bathroom.gender) {
-            case 'Male':
-                return <BiMale />
+  const rating = Math.round(bathroom.rating * 10) / 10;
 
-            case 'Female':
-                return <BiFemale />
-
-            case 'Neutral':
-                return <span><BiMale />/<BiFemale /></span>
-
-            case 'Family':
-                return <MdFamilyRestroom />
-
-            default:
-                return <></>
-        }
+  const url = buildUrl(getThumbnailId(bathroom.pictures), {
+    cloud: {
+      cloudName: cloudName,
+    },
+    transformations: {
+      resize: {
+        type: 'fill',
+        width: 300,
+        height: 300,
+      }
     }
+  })
 
-    return (
-        <Link href={`/bathrooms/${bathroom.id}`}>
-            <a>
-                <div className={styles.summary}>
-                    <div className={styles.thumbnail}>
-                        <Image
-                            src={thumbnail}
-                            alt={`${bathroom.name} bathroom`}
-                            width="100"
-                            height="100"
-                        />
-                    </div>
-                    <div>
-                        <div className={styles.name}>{bathroom.name}</div>
-                        <div className={styles.second_line}>
-                            {bathroom.rating}
-                            &nbsp;
-                            <Rating
-                                initialValue={bathroom.rating}
-                                readonly
-                                fullIcon={<AiFillStar />}
-                                emptyIcon={<AiOutlineStar />}
-                                className={styles.stars}
-                            />
-                            &nbsp;
-                            ({bathroom.numRatings})
-                            &middot;&nbsp;
-                            {bathroom.building.abrev || ''}&nbsp;{bathroom.roomnum}
-                        </div>
-                        <div className={styles.icon_row}>
-                            {gender()}
-                            {bathroom.stalls ? <span><FaToilet /><FaTimes /> {bathroom.stalls} </span> : ''}
-                            {bathroom.urinals ? <span><FaToilet /><FaTimes /> {bathroom.urinals}  </span> : ''}
-                            {bathroom.shower && <FaShower />}
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </Link>
-    )
+  return (
+    <Link href={`/bathrooms/${bathroom.id}`}>
+      <a>
+        <section className='bg-white p-2 rounded mb-3 flex drop-shadow-md'>
+          <div className='text-none flex-shrink-0'>
+            <Image
+              height={100}
+              width={100}
+              src={url}
+              className='rounded'
+              alt={`${bathroom.name} Pictured`}
+            />
+          </div>
+          <div className='pl-2'>
+            <h3 className='leading-4 font-semibold'>
+              {bathroom.name}
+            </h3>
+            <div className='flex'>
+              {rating}
+              &nbsp;
+              <Rating
+                name='bathroom-rating'
+                value={rating}
+                precision={.1}
+                size='medium'
+                readOnly
+              />
+              &nbsp;
+              {`(${bathroom.numRatings})`}
+            </div>
+            <div className='flex'>
+              Rm: {bathroom.roomnum}
+              <span className='flex text-xl leading-5'>{gender(bathroom.gender)}</span>
+            </div>
+          </div>
+        </section>
+      </a>
+    </Link>
+  )
 }
