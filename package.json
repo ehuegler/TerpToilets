@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate; npm run cache; next build",
     "start": "next start",
     "cache": "node scripts/cacheBuildings.js",
     "lint": "next lint"
