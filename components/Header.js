@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-export default function Header() {
+export default function Header({ bathroom }) {
 
   const navLinks = [
     ['Home', '/'],
@@ -39,12 +39,17 @@ export default function Header() {
             {
               navLinks.map((link, i) => (
                 <Link key={i} href={link[1]}>
-                  <a className='md:inline-flex md:w-auto w-full px-3 py-2 font-bold items-center justify-center hover:bg-red-darker '>
+                  <a className='md:inline-flex md:w-auto w-full px-3 py-2 font-bold items-center justify-center hover:bg-red-darker rounded'>
                     {link[0]}
                   </a>
                 </Link>
               ))
             }
+            <Link href={`/review${bathroom ? `?bathroom=${bathroom}` : ''}`}>
+              <a className='md:inline-flex md:w-auto w-full px-3 py-1 font-bold items-center justify-center bg-white text-red-medium rounded hover:bg-gray-200 drop-shadow-md hover:drop-shadow-lg'>
+                Review
+              </a>
+            </Link>
           </div>
         </div>
       </nav>

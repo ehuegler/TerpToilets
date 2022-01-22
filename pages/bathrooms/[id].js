@@ -76,7 +76,7 @@ export default function BathroomPage({ bathroom, error }) {
         <title>{bathroom.name} Bathroom | Toilet UMD</title>
       </Head>
 
-      <Header />
+      <Header bathroom={bathroom.id} />
 
       <Main>
 
