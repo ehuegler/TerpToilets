@@ -20,11 +20,10 @@ export async function getServerSideProps(context) {
 }
 
 export default function Bathrooms({ bathrooms, search }) {
+  console.log(search)
   const [bathroomList, setBathroomList] = useState(JSON.parse(bathrooms).sort((a, b) => (
     b.rating - a.rating
   )))
-
-
   const searchRef = useRef(null)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)

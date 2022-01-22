@@ -12,6 +12,7 @@ import Review from '../../components/Review';
 import { useState } from 'react';
 import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
 import { FaShower, FaSink, FaTimes, FaToilet } from 'react-icons/fa';
+import OrderButton from '../../components/OrderButton';
 
 
 export async function getServerSideProps(req) {
@@ -42,11 +43,12 @@ export async function getServerSideProps(req) {
 
 export default function BathroomPage({ bathroom, error }) {
   const [reviews, setReviews] = useState(bathroom.reviews)
-  const [order, setOrder] = useState(true)
 
   if (error || !bathroom) {
     return <Error statusCode={404} />
   }
+
+  const flipOrder = () => setReviews([...reviews.reverse()])
 
   // console.log(bathroom)
 
@@ -167,18 +169,7 @@ export default function BathroomPage({ bathroom, error }) {
           <h1 className='font-bold'>
             Reviews:
           </h1>
-          <div
-            onClick={() => {
-              setReviews([...reviews.reverse()])
-              setOrder(!order)
-            }}
-            className='flex items-center cursor-pointer bg-zinc-300 rounded p-1'
-          >
-            Order
-            <span className='font-bold text-xl'>
-              {order ? <BiUpArrowAlt /> : <BiDownArrowAlt />}
-            </span>
-          </div>
+          <OrderButton click={flipOrder} />
         </div>
 
         <div className='sm:columns-2'>
