@@ -11,7 +11,7 @@ import buildUrl from 'cloudinary-build-url';
 import Review from '../../components/Review';
 import { useState } from 'react';
 import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
-import { FaSink, FaTimes, FaToilet } from 'react-icons/fa';
+import { FaShower, FaSink, FaTimes, FaToilet } from 'react-icons/fa';
 
 
 export async function getServerSideProps(req) {
@@ -43,11 +43,11 @@ export async function getServerSideProps(req) {
 export default function BathroomPage({ bathroom, error }) {
   const [reviews, setReviews] = useState(bathroom.reviews)
   const [order, setOrder] = useState(true)
-  
+
   if (error || !bathroom) {
     return <Error statusCode={404} />
   }
-  
+
   console.log(bathroom)
 
   const url = buildUrl(getThumbnailId(bathroom.pictures), {
@@ -145,6 +145,14 @@ export default function BathroomPage({ bathroom, error }) {
                 bathroom.sinks ?
                   <div className='flex items-center'>
                     <FaSink /> <FaTimes /> {bathroom.sinks} - Sinks
+                  </div> :
+                  <></>
+              }
+
+              {
+                bathroom.sinks ?
+                  <div className='flex items-center'>
+                    <FaShower /> <FaTimes /> 1{bathroom.shower} - Showers
                   </div> :
                   <></>
               }
