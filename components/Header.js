@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className='bg-red-medium'>
-      <nav className=' container mx-auto flex items-center flex-wrap p-2 font-crimson text-white'>
+      <nav className='container mx-auto flex items-center flex-wrap p-2 md:px-10 font-crimson text-white'>
         <Link href='/'>
           <a className='inline-flex items-center p-2 mr-4 '>
             <span className='text-xl font-bold uppercase tracking-wide'>
