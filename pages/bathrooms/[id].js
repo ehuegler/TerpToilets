@@ -48,7 +48,7 @@ export default function BathroomPage({ bathroom, error }) {
     return <Error statusCode={404} />
   }
 
-  console.log(bathroom)
+  // console.log(bathroom)
 
   const url = buildUrl(getThumbnailId(bathroom.pictures), {
     cloud: {
@@ -80,7 +80,7 @@ export default function BathroomPage({ bathroom, error }) {
 
         <div className='flex flex-col sm:flex-row'>
 
-          <div className='text-none basis-[75%] p-2'>
+          <div className='text-none sm:w-[75%] p-2'>
             <Image
               src={url}
               height={300}
@@ -150,9 +150,9 @@ export default function BathroomPage({ bathroom, error }) {
               }
 
               {
-                bathroom.sinks ?
+                bathroom.shower ?
                   <div className='flex items-center'>
-                    <FaShower /> <FaTimes /> 1{bathroom.shower} - Showers
+                    <FaShower /> <FaTimes /> {bathroom.shower} - Showers
                   </div> :
                   <></>
               }

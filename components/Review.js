@@ -11,7 +11,7 @@ export default function Review({ review }) {
 
 
   return (
-    <section className='bg-zinc-200 p-2 rounded mb-3 flex flex-col'>
+    <section className='bg-white p-2 rounded mb-3 flex flex-col drop-shadow-md'>
 
       <div className='flex justify-between flex-wrap'>
         <h3 className='font-semibold'>
