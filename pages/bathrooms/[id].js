@@ -11,7 +11,8 @@ import buildUrl from 'cloudinary-build-url';
 import Review from '../../components/Review';
 import { useState } from 'react';
 import { BiDownArrowAlt, BiUpArrowAlt } from 'react-icons/bi'
-import { FaSink, FaTimes, FaToilet } from 'react-icons/fa';
+import { FaShower, FaSink, FaTimes, FaToilet } from 'react-icons/fa';
+import OrderButton from '../../components/OrderButton';
 
 
 export async function getServerSideProps(req) {
@@ -42,13 +43,14 @@ export async function getServerSideProps(req) {
 
 export default function BathroomPage({ bathroom, error }) {
   const [reviews, setReviews] = useState(bathroom.reviews)
-  const [order, setOrder] = useState(true)
-  
+
   if (error || !bathroom) {
     return <Error statusCode={404} />
   }
-  
-  console.log(bathroom)
+
+  const flipOrder = () => setReviews([...reviews.reverse()])
+
+  // console.log(bathroom)
 
   const url = buildUrl(getThumbnailId(bathroom.pictures), {
     cloud: {
@@ -74,13 +76,13 @@ export default function BathroomPage({ bathroom, error }) {
         <title>{bathroom.name} Bathroom | Toilet UMD</title>
       </Head>
 
-      <Header />
+      <Header bathroom={bathroom.id} />
 
       <Main>
 
         <div className='flex flex-col sm:flex-row'>
 
-          <div className='text-none basis-[75%] p-2'>
+          <div className='text-none sm:w-[75%] p-2'>
             <Image
               src={url}
               height={300}
@@ -149,6 +151,14 @@ export default function BathroomPage({ bathroom, error }) {
                   <></>
               }
 
+              {
+                bathroom.shower ?
+                  <div className='flex items-center'>
+                    <FaShower /> <FaTimes /> {bathroom.shower} - Showers
+                  </div> :
+                  <></>
+              }
+
             </div>
 
           </div>
@@ -159,18 +169,7 @@ export default function BathroomPage({ bathroom, error }) {
           <h1 className='font-bold'>
             Reviews:
           </h1>
-          <div
-            onClick={() => {
-              setReviews([...reviews.reverse()])
-              setOrder(!order)
-            }}
-            className='flex items-center cursor-pointer bg-zinc-300 rounded p-1'
-          >
-            Order
-            <span className='font-bold text-xl'>
-              {order ? <BiUpArrowAlt /> : <BiDownArrowAlt />}
-            </span>
-          </div>
+          <OrderButton click={flipOrder} />
         </div>
 
         <div className='sm:columns-2'>

@@ -15,7 +15,7 @@ model Bathrooms {
   roomnum       String?
   description   String?
   gender        Gender?
-  shower        Boolean?
+  shower        Int?
   sinks         Int?
   stalls        Int?
   urinals       Int?

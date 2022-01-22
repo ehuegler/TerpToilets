@@ -20,11 +20,10 @@ export async function getServerSideProps(context) {
 }
 
 export default function Bathrooms({ bathrooms, search }) {
+  console.log(search)
   const [bathroomList, setBathroomList] = useState(JSON.parse(bathrooms).sort((a, b) => (
     b.rating - a.rating
   )))
-
-
   const searchRef = useRef(null)
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(false)
@@ -95,9 +94,9 @@ export default function Bathrooms({ bathrooms, search }) {
                   key={i}
                   onClick={() => setQuery(building.name)}
                 >
-                  <a href={`/bathrooms?filter=${building.name}`}>
-                    {building.name}
-                  </a>
+                    <a href={`/bathrooms?filter=${building.name}`}>
+                      {building.name}
+                    </a>
                 </li>
               ))}
             </ul>
