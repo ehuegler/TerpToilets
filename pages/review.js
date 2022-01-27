@@ -3,7 +3,9 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 
 
-export default function Review() {
+export default function Review(props) {
+  
+
 
   return (
     <>
