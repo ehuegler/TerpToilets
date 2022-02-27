@@ -1,11 +1,15 @@
-import '../styles/globals.css'
+import Navbar from '../components/Navbar'
+import '../styles.css'
 
-const App = ({ Component, pageProps }) => {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} 
-      className='bg-neutral-100'
-    />
-  );
-};
-
-export default App;
+    <>
+      <Navbar />
+      <main>
+        <div className="container">
+          <Component {...pageProps} />
+        </div>
+      </main>
+    </>
+  )
+}
