@@ -180,6 +180,7 @@ return [
          * Mine
          */
         'Subfission\Cas\CasServiceProvider',
+        Aws\Laravel\AwsServiceProvider::class,
     ],
 
     /*
@@ -236,6 +237,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Cas' => 'Subfission\Cas\Facades\Cas',
+        'AWS' => Aws\Laravel\AwsFacade::class,
 
     ],
 

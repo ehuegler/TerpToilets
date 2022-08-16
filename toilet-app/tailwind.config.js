@@ -6,7 +6,14 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'umd': '#E21833',
+      },
+      fontFamily: {
+        crimson: ['Crimson', '"Times New Roman"'],
+      },
+    },
   },
   plugins: [],
 }

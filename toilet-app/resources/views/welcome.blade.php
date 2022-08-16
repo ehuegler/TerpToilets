@@ -15,11 +15,27 @@
 
 </head>
 
-<body class="antialiased">
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
-    <a href="/restricted">restricted page</a>
+<body>
+
+    @include('inc.header')
+
+    <div class="mx-auto px-4 flex flex-col items-center">
+        <h1 class="text-3xl font-bold underline">
+            Bathrooms:
+        </h1>
+        @foreach ($bathrooms as $bathroom)
+        <div>
+            <h2>{{ $bathroom->name }}</h2>
+            <p>
+                this is a bathroom.
+            </p>
+        </div>
+        @endforeach
+    </div>
+
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>

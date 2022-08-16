@@ -2062,6 +2062,11 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+document.querySelector('[data-toggle-hide]').addEventListener('click', function () {
+  console.log(this.dataset);
+  document.querySelector(this.dataset.toggleHide).classList.toggle('hidden');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

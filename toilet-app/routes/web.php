@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Subfission;
+use App\Http\Controllers\BathroomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +14,21 @@ use Subfission;
 |
 */
 
-Route::get('/', function ()
-{
-    return view('welcome');
-});
+Route::get('/', [BathroomController::class, 'index']);
 
-Route::middleware(['cas.auth'])->group(function ()
-{
-    Route::get('/restricted', function ()
-    {
+
+// authenticated routes
+Route::middleware(['cas.auth'])->group(function () {
+    Route::get('/restricted', function () {
         return view('restricted');
     });
 });
 
+
+// authentication logout route
 Route::get('/auth/logout', [
-    'middleware' => 'cas.auth', 
-    function(){ 
-        cas()->logout(); 
+    'middleware' => 'cas.auth',
+    function () {
+        cas()->logout();
     }
 ]);
