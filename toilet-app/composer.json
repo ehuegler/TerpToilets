@@ -11,8 +11,9 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "laravelcollective/html": "^6.3",
         "subfission/cas": "^4.2",
-        "aws/aws-sdk-php-laravel": "~3.0"
+        "cloudinary-labs/cloudinary-laravel": "1.0.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

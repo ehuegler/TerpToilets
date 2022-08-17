@@ -2,10 +2,13 @@
 
 @font-face {
   font-family: 'Crimson';
-  src: url('/fonts/Crimson-Roman.otf');
+  src: url('/fonts/Crimson-Bold.otf');
 }
 
 @layer base {
+  body {
+    background: #F3F6F9;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-crimson
   }

@@ -16,12 +16,13 @@ use App\Http\Controllers\BathroomController;
 
 Route::get('/', [BathroomController::class, 'index']);
 
+Route::get('/bathrooms/{id}', [BathroomController::class, 'show']);
+
 
 // authenticated routes
 Route::middleware(['cas.auth'])->group(function () {
-    Route::get('/restricted', function () {
-        return view('restricted');
-    });
+    Route::get('/review', [BathroomController::class, 'review']);
+    Route::post('/store', [BathroomController::class, 'store']);
 });
 
 

@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         'umd': '#E21833',
+        'bg': '#F3F6F9',
       },
       fontFamily: {
         crimson: ['Crimson', '"Times New Roman"'],

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bathroom;
+use App\Models\Review;
+use App\Models\Building;
 use Illuminate\Http\Request;
 
 class BathroomController extends Controller
@@ -14,8 +16,15 @@ class BathroomController extends Controller
      */
     public function index()
     {
-        
-        return view('welcome', ['bathrooms' => Bathroom::all()]);
+
+        $data = array(
+            'bathrooms' => Bathroom::with('building')->get()
+        );
+        return view('index')->with($data);
+    }
+
+    public function review() {
+        return view('review');
     }
 
     /**
@@ -36,7 +45,37 @@ class BathroomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // validate form results
+        $this->validate($request, [
+            'id' => 'required',
+            'rating' => 'required',
+        ]);
+        // need to make sure the id is a number!!!
+        // also convert rating to a number as well? seems like something takes care of it automagically
+
+        // upload review
+        $review = new Review;
+        $review->bathroom_id = $request->input('id'); 
+        $review->rating = $request->input('rating'); 
+        $review->author = $request->input('author'); 
+        $review->body = $request->input('description'); 
+
+        // set status messages
+        if ($review->save()) {
+            $status = 'success';
+            $message = 'Review Added Successfully';
+        } else {
+            $status = 'error';
+            $message = 'Something went wrong... Please try again.';
+
+        }
+
+        // get redirect link
+        $link = '/bathrooms/' . $request->input('id');
+
+        return redirect($link)->with($status, $message);
+
     }
 
     /**
@@ -47,7 +86,13 @@ class BathroomController extends Controller
      */
     public function show($id)
     {
-        //
+        $bathroom = Bathroom::find($id);
+        $data = array(
+            'bathroom' => $bathroom,
+            'reviews'=> $bathroom->reviews
+        );
+
+        return view('bathrooms.bathroom')->with($data);
     }
 
     /**
