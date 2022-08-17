@@ -14,10 +14,6 @@ use App\Http\Controllers\BathroomController;
 |
 */
 
-if (App::environment('production')) {
-    URL::forceScheme('https');
-}
-
 Route::get('/', [BathroomController::class, 'index']);
 
 Route::get('/bathrooms/{id}', [BathroomController::class, 'show']);
