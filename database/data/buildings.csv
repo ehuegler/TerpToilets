@@ -1,0 +1,365 @@
+1,Energy Plant,
+3,Service Building,
+4,Ritchie Coliseum,RIT
+6,Building 006,
+7,Pocomoke Building,
+8,Annapolis Hall,
+9,Memorial Chapel,
+10,Patuxent Building,
+11,The Hall,
+14,Harford Hall,HRF
+15,Calvert Hall,CAL
+16,Baltimore Hall,BAL
+17,Cecil Hall,CEC
+19,Satellite Central Utilities Building (Scub 1),
+20,Motorcycle Storage Building,
+21,Prince Georges Hall,PGG
+22,Kent Hall,KNT
+23,Washington Hall,WSH
+24,Allegany Hall,AGY
+25,Charles Hall,CHL
+26,South Campus Dining Hall,SDH
+28,Howard Hall,HOW
+29,Frederick Hall,FRD
+30,Talbot Hall,TAL
+31,Garrett Hall,GRT
+32,Montgomery Hall,MNT
+34,Jimenez Hall,JMZ
+35,Mckeldin Library,MCK
+36,Plant Sciences Building,PLS
+37,Shoemaker Building,SHM
+38,Lefrak Hall,LEF
+39,Van Munching Hall,VMH
+40,Morrill Hall,MOR
+42,Tydings Hall,TYD
+43,Taliaferro Hall,TLF
+44,Skinner Building,SKN
+45,Instructional Television Facility,ITV
+46,Marie Mount Hall,MMH
+47,Woods Hall,WDS
+48,Francis Scott Key Hall,KEY
+51,Worcester Hall,WOR
+52,Clarence M. Mitchell Jr. Building,
+54,Preinkert Hall,PKT
+56,Hvac &Amp; Pm Storage Building,
+57,Animal Care Storage Facility,
+59,Chincoteague Hall,
+60,Anne Arundel Hall,ANA
+61,Queen Annes Hall,QAN
+62,St. Marys Hall,STM
+63,Somerset Hall,SOM
+64,Dorchester Hall,DOR
+65,Carroll Hall,CRL
+67,Satellite Central Utilities Building (Scub 2),
+68,Eppley Recreation Center,CRC
+69,Wicomico Hall,WIC
+70,Caroline Hall,CAR
+71,Lee Building,
+73,H.J. Patterson Hall,HJP
+76,Symons Hall,SYM
+77,Thomas V. Miller Jr. Administration Building,
+78,Reckord Armory,ARM
+79,Turner Hall,TUR
+80,Rossborough Inn,
+81,Wind Tunnel Building,WTU
+82,John S. Toll Physics Building,PHY
+83,J.M. Patterson Building,JMP
+84,William E. Kirwan Hall,MTH
+85,Institute For Physical Science &Amp; Tech,IPT
+87,Central Animal Resources Facility,
+88,Martin Hall,EGR
+89,C. Daniel Mote Jr. Engineering Laboratory,EGL
+90,Chemical &Amp; Nuclear Engineering Building,CHE
+91,Chemistry Building,CHM
+93,Engineering Annex,EAB
+96,Cambridge Hall,CAM
+97,Cambridge Community Center,CCC
+98,Centreville Hall,CEN
+99,Bel Air Hall,BEL
+102,Agriculture Shed,
+103,Animal Science Service Building,
+108,Horse Barn,
+109,Sheep Barn,
+110,Cattle Barn,
+111,Physics Welding Shop,
+115,A.V. Williams Building,AVW
+116,Residential Facilities Building 116,
+119,Poultry Barn,
+121,Chestertown Hall,CHS
+122,Cumberland Hall,CBD
+124,Grounds Material &Amp; Equipment Building,
+126,Greek House 1,Kappa Alpha
+127,Greek House 2,Sigma Alpha Mu
+128,Greek House 3,Tau Kappa Epsilon
+129,Greek House 4,Alpha Epsilon Pi
+130,Greek House 5,Phi Kappa Alpha
+131,Greek House 6,Delta Chi
+132,Greek House 7,Lamda Chi Alpha
+133,Greek House 8,Phi Epsilon
+134,Greek House 9,Alpha Sigma Phi
+135,Greek House 10,Sigma Kappa
+136,Greek House 11,Alpha Epsilon Phi
+137,Greek House 12,Zeta Tau Alpha
+138,Greek House 13,Zeta Psi
+139,Greek House 14,Zeta Beta Tau
+140,Health Center,
+141,Tawes Hall,TWS
+142,Animal Sciences/Agric. Engrg Bldg,ANS
+143,Benjamin Building,EDU
+144,Biology-Psychology Building,BPS
+145,Architecture Building,ARC
+146,Parren J. Mitchell Art-Sociology Building,ASY
+147,Hornbake Library,HBK
+148,Manufacturing Building,
+156,Arboretum Outreach Center,
+158,Varsity Sports Teamhouse,
+159,Bob 'Turtle' Smith Stadium At Shipley Field,
+162,Cole Student Activities Building,COL
+163,Stamp Student Union,SSU
+164,University House,
+165,Golf Course Driv. Range Cont. Bldg.,
+166,Golf Course Club House,GLF
+167,Golf Course Maintenance Office,
+169,Boat House,
+170,Greek House 170,Alpha Dlta Pi
+171,Greek House 171,Phi Sigma Sigma
+172,Greek House 172,Alpha Chi Omega
+173,Greek House 173,Delta Phi Epsilon
+174,Greek House 174,Sigma Delta Tau
+175,Greek House 175,Delta Gamma
+176,Greek House 176,Alpha Phi
+179,Union Lane Parking Garage,
+195,Mfri Drill Tower,
+196,Mfri Structural Firefighting Building,
+197,Mfri Fire Extinguisher Training Fac.,
+198,Mfri Breath Apparatus Training Bldg,
+199,Mfri Office/Classroom Building,
+201,Leonardtown Office Building,
+202,Regents Drive Parking Garage,
+204,Residential Facilities Building 204,
+207,Residential Facilities Building 207,
+213,Plant Operations &Amp; Maint. Storage Bldg.2,
+214,Plant Operations &Amp; Maint. Storage Bldg.1,
+218,Stadium Drive Parking Garage,
+219,Astronomy Lecture Building,
+221,Astronomical Observatory,
+223,Energy Research Facility,
+224,Atlantic Building,ATL
+225,Kim Engineering Building,KEB
+226,Edward St. John Learning And Teaching Center,ESJ
+227,Jull Hall,JUL
+228,E. A. Fernandez Idea Factory,
+231,Microbiology Building,MCB
+232,Nyumburu Cultural Center,NCC
+233,Susquehanna Hall,SQH
+237,Geology Building,GEO
+238,Leonardtown 238,
+239,Leonardtown 239,
+240,Leonardtown 240,
+241,Leonardtown 241,
+242,Leonardtown 242,
+243,Leonardtown 243,
+244,Leonardtown 244,
+245,Leonardtown 245,
+246,Leonardtown 246,
+247,Leonardtown 247,
+248,Leonardtown 248,
+249,Leonardtown 249,
+250,Leonardtown Community Center,
+251,Denton Area Dining Hall,
+252,Denton Hall,DEN
+253,Easton Hall,EAS
+254,Elkton Hall,ELK
+255,School Of Public Health Building,SPH
+256,Ellicott Hall,ELL
+257,Ellicott Area Dining Hall,
+258,Hagerstown Hall,HAG
+259,La Plata Hall,LPA
+260,Graduate Gardens Apartments 1,
+261,Graduate Gardens Apartments 2,
+262,Graduate Gardens Apartments 3,
+263,Graduate Gardens Apartments 4,
+264,Graduate Gardens Apartments 5,
+265,Graduate Gardens Apartments 6,
+266,Graduate Gardens Apartments 7,
+267,Graduate Gardens Apartments 8,
+268,Graduate Gardens Apartments 9,
+269,Graduate Gardens Apartments 10,
+270,Graduate Gardens Apartments 11,
+271,Graduate Gardens Apartments 12,
+272,Graduate Gardens Apartments 13,
+273,Graduate Gardens Apartments 14,
+274,Graduate Gardens Apartments 15,
+275,Graduate Gardens Apartments 16,
+276,Graduate Gardens Apartments 17,
+277,Graduate Gardens Apartments 18,
+278,Graduate Gardens Apartments 19,
+279,Graduate Gardens Apartments 20,
+280,Graduate Gardens Apartments 21,
+281,Graduate Gardens Apartments 22,
+282,Graduate Gardens Apartments 23,
+283,Graduate Gardens Apartments 24,
+284,Graduate Gardens Apartments 25,
+285,Graduate Gardens Apartments 26,
+286,Graduate Hills Apt 1,
+287,Graduate Hills Apt 2,
+288,Graduate Hills Apt 3,
+289,Graduate Hills Apt 4,
+290,Graduate Hills Apt 5,
+291,Graduate Hills Apt 6,
+292,Graduate Hills Apt 7,
+295,North Gate (Campus Drive &Amp; Route 1),
+296,Biomolecular Sciences Building,
+297,West Gate (Perf Arts And Denton On Stadium Dr/193),
+298,Paint Branch Gate (Paint Branch Dr And 193),
+299,Gate House,
+309,Indoor Practice Facility,
+311,Elkins,
+312,Golf Course Chemical Storage Bldg,
+313,Golf Course Storage Building 1,
+314,Golf Course Repair Shop,
+318,Golf Course Toilet Facility,
+319,Golf Course Storage Building,
+320,Golf Course Fertilizer Shed,
+327,Grounds Herbicide/Pesticide Stg. Bldg.,
+328,Grounds Operations &Amp; Maintenance Bldg.,
+338,Chesapeake Building,
+344,Environmental Service Facility,
+345,College Park Marriott Hotel &Amp; Conference Center,
+346,Umgc Administration Building,
+347,Umgc Marriott Garage,
+348,College Park Marriott Hotel And Conference Center,
+360,Xfinity Center,
+361,Tyser Tower,
+362,Maryland Stadium Concessions 1,
+363,Maryland Stadium Concessions 2,
+364,Maryland Stadium Concessions 3,
+365,Maryland Stadium Concessions 4,
+366,Maryland Stadium Ticket Booth,
+367,Maryland Stadium Concessions 5,
+368,Maryland Stadium Building (Upper Deck),
+369,Maryland Stadium Maintenance Building,
+370,Maryland Stadium Concessions 6,
+378,Basketball Performance Center,
+379,Gossett Football Team House,
+381,Center For Young Children,
+382,Neutral Buoyancy Research Facility,
+383,Paint Branch Building,
+386,Clarice Smith Performing Arts Center,PAC
+387,Herbert Rabin Technology Advancement Building,TAP
+388,Kehoe Track At Ludwig Field,
+389,Track &Amp; Soccer Field Ticket Booth,
+392,Satellite Central Utilities Building (Scub 3),
+394,Sample Preparation Building (Paint Branch),
+395,Turfgrass Research Facility (Paint Branch),
+396,Equipment Storage Building (Paint Branch),
+398,Research Greenhouse,
+399,Aquatic Center,
+400,Mowatt Lane Substation,
+401,South Gate (Regents Dr And Route 1),
+403,Terrapin Trail Parking Garage,
+404,Mowatt Lane Parking Garage,
+405,Satellite Central Utilities Building (Scub 4),
+406,Computer Science Instructional Center,CSI
+407,Riggs Alumni Center,
+409,Maryland Softball Stadium,
+413,Bioscience Research Building,BRB
+414,Field Hockey And Lacrosse Complex,
+415,Physical Sciences Complex,PSC
+416,Satellite Central Utilities Building (Scub 5),
+417,Knight Hall,KNI
+419,Oakland Hall,
+420,Maryland Baseball Annex,
+422,Cspac Grounds Storage Facility,
+423,Grounds Storage Facility,
+424,Shuttle Bus Facility,
+425,Prince Frederick Hall,
+426,Heavy Equipment Building,
+427,Fleet Services Building,
+428,Wye Oak Building,
+429,A. James Clark Hall,AJC
+432,Brendan Iribe Center,IRB
+433,School Of Public Policy Building,
+434,Pyon-Chen Hall,PCH
+435,Johnson-Whittle Hall,
+436,Yahentamitsi,
+437,Pump Building,
+438,Interdisciplinary Engineering Building,
+749,Art Houghton Jr. Office Lab,
+795,Avrum Gudelsky Veterinary Center,
+796,Laboratory For Physical Sciences,
+797,Laboratory For Telecommunication Sciences,
+798,Mosquito Control Building,
+799,Leafhouse,
+800,4-H Headquarters,
+802,College Park Fire Station,
+803,Adelphi Road Office Annex,
+805,Patapsco Building,
+806,Technology Ventures Building,
+807,Research Park Building 1,
+809,Police Services And Training Facility,
+810,Severn Building,
+812,Seneca Building,
+813,Artemesia Building,
+814,Cypress Building,
+815,7401 Baltimore Ave,CPCH
+885,Veterinary Science Barn3,
+886,Crane Aquaculture Building,
+887,Veterinary Science Equipmt Storage Bldg,
+888,Crane Aquaculture Support Building,
+900,Leased Facility 900,The Hotel
+901,Leased Facility 901,
+903,Leased Facility 903,
+904,Leased Facility 904,
+905,Leased Facility 905,
+907,Leased Facility 907,
+908,Leased Facility 908,
+909,Leased Facility 909,
+911,Leased Facility 911,
+913,Leased Facility 913,
+914,Leased Facility 914,
+916,Leased Facility 916,
+917,Leased Facility 917,
+925,Leased Facility 925,
+932,Leased Facility 932,
+936,Leased Facility 936,
+940,Leased Facility 940,
+941,Leased Facility 941,
+943,Leased Facility 943,
+944,Leased Facility 944,
+948,Leased Facility 948,
+950,Leased Facility 950,
+951,Leased Facility 951,
+952,Leased Facility 952,
+954,Leased Facility 954,
+955,Leased Facility 955,
+956,Leased Facility 956,
+957,Leased Facility 957,
+958,Leased Facility 958,
+960,Licensed Facility 960,
+967,Urc 1,
+968,Urc 2,
+969,Urc 3,
+970,Acad,
+973,Hillel Center,
+974,South Campus Commons 5,
+975,South Campus Commons 6,
+976,Ibbr 1,
+977,Ibbr 2,
+981,South Campus Commons 7,
+982,Usg Garage 1,
+983,Usg Garage 2,
+984,Shady Grove #4,
+987,Courtyard 100,
+988,Courtyard 200,
+989,Courtyard 300,
+990,Courtyard 400,
+991,Courtyard 500,
+992,Courtyard 600,
+993,Courtyard 700,
+994,Courtyard Clubhouse,
+995,Courtyard Maintenance Shed,
+996,South Campus Commons 1,
+997,South Campus Commons 2,
+998,South Campus Commons 3,
+999,South Campus Commons 4,

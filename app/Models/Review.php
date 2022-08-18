@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     public function bathroom() {
-        return $this->belongsTo('App\Model\Bathroom');
+        return $this->belongsTo('App\Models\Bathroom');
     }
 }

@@ -18,8 +18,12 @@ class CreateBathroomsTable extends Migration
             $table->timestamps();
             $table->string('name', 191);
             $table->string('roomnum', 10);
-            $table->mediumText('description');
-            $table->string('gender', 10);
+            $table->string('gender', 31);
+            $table->integer('building_id');
+            $table->mediumText('description')->default('');
+            $table->float('rating')->default(0);
+            $table->boolean('shower')->default(false);
+            $table->string('picture', 191)->default('testudo.jpg');
         });
     }
 

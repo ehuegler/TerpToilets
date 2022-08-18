@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddBuildingIdToBathroom extends Migration
+class RemoveAutoKeyFromBuildings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddBuildingIdToBathroom extends Migration
      */
     public function up()
     {
-        Schema::table('bathrooms', function (Blueprint $table) {
-            $table->integer('building_id');
+        Schema::table('buildings', function (Blueprint $table) {
+            $table->dropPrimary('id');
+            $table->integer('id')->unsigned()->change();
         });
     }
 
@@ -25,8 +26,7 @@ class AddBuildingIdToBathroom extends Migration
      */
     public function down()
     {
-        Schema::table('bathrooms', function (Blueprint $table) {
-            $table->dropColumn('building_id');
+        Schema::table('buildings', function (Blueprint $table) {
         });
     }
 }

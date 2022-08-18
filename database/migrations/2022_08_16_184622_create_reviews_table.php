@@ -18,6 +18,8 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
             $table->longText('body');
             $table->tinyInteger('rating');
+            $table->string('author', 69)->nullable();
+            $table->integer('bathroom_id');
         });
     }
 

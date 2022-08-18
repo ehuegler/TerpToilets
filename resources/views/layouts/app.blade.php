@@ -13,13 +13,16 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+
+    <script src="https://kit.fontawesome.com/9570fbd2a8.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
     @include('inc.header')
 
-    <div class="mx-auto px-4 container max-w-[800px]">
+    <div class="mx-auto px-4 container max-w-[600px]">
         @include('inc.messages')
         @yield('content')
     </div>

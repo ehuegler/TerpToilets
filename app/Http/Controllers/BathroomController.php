@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Bathroom;
 use App\Models\Review;
-use App\Models\Building;
 use Illuminate\Http\Request;
 
 class BathroomController extends Controller
@@ -18,12 +17,18 @@ class BathroomController extends Controller
     {
 
         $data = array(
-            'bathrooms' => Bathroom::with('building')->get()
+            'bathrooms' => Bathroom::with('building')
+                ->where('rating', '!=', '0')
+                ->orderby('rating', 'desc')
+                ->orderBy('name', 'asc')
+                ->take(10)
+                ->get()
         );
         return view('index')->with($data);
     }
 
-    public function review() {
+    public function review()
+    {
         return view('review');
     }
 
@@ -56,26 +61,30 @@ class BathroomController extends Controller
 
         // upload review
         $review = new Review;
-        $review->bathroom_id = $request->input('id'); 
-        $review->rating = $request->input('rating'); 
-        $review->author = $request->input('author'); 
-        $review->body = $request->input('description'); 
+        $review->bathroom_id = $request->input('id');
+        $review->rating = $request->input('rating');
+        $review->author = $request->input('author');
+        $review->body = $request->input('description');
 
         // set status messages
         if ($review->save()) {
             $status = 'success';
             $message = 'Review Added Successfully';
+
+            // if successful we also need to update the bathroom's rating
+            $bathroom = $review->bathroom;
+            $bathroom->rating = BathroomController::get_average($bathroom->id);
+            $bathroom->save();
+
         } else {
             $status = 'error';
             $message = 'Something went wrong... Please try again.';
-
         }
 
         // get redirect link
         $link = '/bathrooms/' . $request->input('id');
 
         return redirect($link)->with($status, $message);
-
     }
 
     /**
@@ -89,7 +98,7 @@ class BathroomController extends Controller
         $bathroom = Bathroom::find($id);
         $data = array(
             'bathroom' => $bathroom,
-            'reviews'=> $bathroom->reviews
+            'reviews' => $bathroom->reviews
         );
 
         return view('bathrooms.bathroom')->with($data);
@@ -127,5 +136,18 @@ class BathroomController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public static function get_average(Bathroom $bathroom)
+    {
+        $ratings = array_map(fn ($n) => $n['rating'], $bathroom->reviews->toArray());
+        return array_sum($ratings) / count($ratings);
+    }
+
+    public static function update_averages() {
+        foreach (Bathroom::lazy() as $bathroom) {
+            $bathroom->rating = BathroomController::get_average($bathroom);
+            $bathroom->save();
+        }
     }
 }

@@ -15,7 +15,7 @@ class CreateBuildingsTable extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->integer('id', 4)->unique();
-            $table->string('short', 5);
+            $table->string('short', 31)->nullable();
             $table->string('name', 191);
             $table->timestamps();
         });
