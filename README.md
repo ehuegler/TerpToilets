@@ -1,4 +1,4 @@
-# Toilet UMD
+# Terp Toilets
 
 Tech Stack
 - Laravel back end hosted on heroku

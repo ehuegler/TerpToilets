@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Toilet UMD')
+@section('title', 'Terp Toilets')
 
 @section('content')
     <div class="flex my-4 justify-between w-full">
