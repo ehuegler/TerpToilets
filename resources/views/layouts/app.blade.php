@@ -13,9 +13,6 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
-
-    <script src="https://kit.fontawesome.com/9570fbd2a8.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -27,8 +24,9 @@
         @yield('content')
     </div>
 
-
-    <script src="/js/app.js"></script>
+    
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script src="https://kit.fontawesome.com/9570fbd2a8.js" crossorigin="anonymous"></script>
 
 </body>
 

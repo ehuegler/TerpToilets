@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bathroom;
+use App\Models\Building;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,20 @@ class BathroomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $num = $request->num ?? 10;
 
         $data = array(
             'bathrooms' => Bathroom::with('building')
                 ->where('rating', '!=', '0')
                 ->orderby('rating', 'desc')
                 ->orderBy('name', 'asc')
-                ->take(10)
-                ->get()
+                ->take($num)
+                ->get(),
+            'buildings' => Building::whereHas('bathrooms')->orderBy('name')->get(),
+            'currBuilding' => '',
+            'currGender' => '',
         );
         return view('index')->with($data);
     }
@@ -75,7 +80,6 @@ class BathroomController extends Controller
             $bathroom = $review->bathroom;
             $bathroom->rating = BathroomController::get_average($bathroom->id);
             $bathroom->save();
-
         } else {
             $status = 'error';
             $message = 'Something went wrong... Please try again.';
@@ -144,7 +148,8 @@ class BathroomController extends Controller
         return array_sum($ratings) / count($ratings);
     }
 
-    public static function update_averages() {
+    public static function update_averages()
+    {
         foreach (Bathroom::lazy() as $bathroom) {
             $bathroom->rating = BathroomController::get_average($bathroom);
             $bathroom->save();

@@ -2,13 +2,48 @@
 @section('title', 'Terp Toilets')
 
 @section('content')
-    <div class="flex my-4 justify-between w-full">
-        <div class="bg-white p-2 rounded drop-shadow flex-grow mr-4">
-            Search
+
+    <div class="rounded bg-white p-2 drop-shadow my-4">
+        <h1 class="">
+            Building
+        </h1>
+        <div onblur="console.log('howdy');">
+            <input type="text" id="buildingInput" onkeyup="search()" onfocus="toggleBuildingResults()"
+                 placeholder="&#xf002; Search Buildings"
+                class="w-full bg-bg border border-slate-300 rounded p-2">
+            <div class="bg-bg rounded p-2 border border-slate-300 my-2 hidden" id="buildingResults">
+                @if (count($buildings) > 0)
+                    @foreach ($buildings as $building)
+                        <div id="{{ $building->id }}" onclick="buildingClicked(this)" class="py-1">
+                            <a href="/?building={{$building->id}}">{{ $building->name }} {{$building->short != '' ? '(' . $building->short . ')' : ''}}</a>
+                        </div>
+                    @endforeach
+                @else
+                    No Builings Found...
+                @endif
+            </div>
         </div>
-        <div class="bg-white p-2 rounded drop-shadow">
-            Filter
-        </div>
+
+        <h1>
+            Gender
+        </h1>
+        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2">
+            <option value="">All</option>
+            <option value="">Family</option>
+            <option value="">Female</option>
+            <option value="">Gender Neutral</option>
+            <option value="">Male</option>
+        </select>
+
+        <h1>
+            Sort
+        </h1>
+
+        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2">
+            <option value="">Ascending</option>
+            <option value="">Descending</option>
+        </select>
+
     </div>
     @foreach ($bathrooms as $bathroom)
         <div class="w-full rounded drop-shadow bg-white p-2 my-2 flex flex-row justify-between">
@@ -68,5 +103,9 @@
         <div class="text-center">
             Something went wrong, please try again later...
         </div>
+    @else
+        <h1 class="bg-white rounded p-2 drop-shadow mb-8 text-center">
+            <a href="/index.php?num={{ count($bathrooms) + 10 }}">Load More</a>
+        </h1>
     @endif
 @endsection
