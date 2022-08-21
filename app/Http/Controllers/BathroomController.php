@@ -18,16 +18,28 @@ class BathroomController extends Controller
     {
         $num = $request->num ?? 10;
 
-        $data = array(
-            'bathrooms' => Bathroom::with('building')
+        if ($request->building !== null) {
+            $bathrooms = Bathroom::with('building')
+                ->where('rating', '!=', '0')
+                ->whereRelation('building', 'id', '=', $request->building)
+                ->orderby('rating', 'desc')
+                ->orderBy('name', 'asc')
+                ->get();
+            $selected = Building::find($request->building)->name;
+        } else {
+            $bathrooms = Bathroom::with('building')
                 ->where('rating', '!=', '0')
                 ->orderby('rating', 'desc')
                 ->orderBy('name', 'asc')
                 ->take($num)
-                ->get(),
-            'buildings' => Building::whereHas('bathrooms')->orderBy('name')->get(),
-            'currBuilding' => '',
-            'currGender' => '',
+                ->get();
+            $selected = 'none';
+        }
+
+        $data = array(
+            'bathrooms' => $bathrooms,
+            'buildings' => Building::has('bathrooms')->orderBy('name')->get(),
+            'selectedBuilding' => $selected,
         );
         return view('index')->with($data);
     }

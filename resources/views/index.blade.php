@@ -40,7 +40,8 @@
             Sort
         </h1>
 
-        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2" onchange="toggleSortOrder(this)">
+        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2"
+            onchange="toggleSortOrder(this)">
             <option value="">Ascending</option>
             <option value="">Descending</option>
         </select>
@@ -107,8 +108,14 @@
             Something went wrong, please try again later...
         </div>
     @else
-        <h1 class="bg-white rounded p-2 drop-shadow mb-8 text-center">
-            <a href="/index.php?num={{ count($bathrooms) + 10 }}">Load More</a>
-        </h1>
+        @if ($selectedBuilding == 'none')
+            <h1 class="bg-white rounded p-2 drop-shadow mb-8 text-center">
+                <a href="/?num={{ count($bathrooms) + 10 }}">Load More</a>
+            </h1>
+        @else
+            <h1 class="bg-white rounded p-2 drop-shadow mb-8 text-center">
+                <a href="/">Clear Search</a>
+            </h1>
+        @endif
     @endif
 @endsection
