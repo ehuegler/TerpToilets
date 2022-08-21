@@ -15,6 +15,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 // deal with all the buildings? here:
 var buildingList = document.getElementById('buildingResults');
+var bathroomList = document.getElementById('bathrooms');
 
 toggleBuildingResults = function toggleBuildingResults() {
   buildingList.classList.toggle('hidden');
@@ -24,7 +25,7 @@ search = function search() {
   buildingList.classList.remove('hidden');
   var input = document.getElementById('buildingInput');
   var query = input.value.toUpperCase();
-  var results = document.getElementById('buildingResults').children;
+  var results = buildingList.children;
 
   var _iterator = _createForOfIteratorHelper(results),
       _step;
@@ -48,6 +49,30 @@ search = function search() {
 
 buildingClicked = function buildingClicked(building) {
   console.log(building.textContent);
+};
+
+genderFilter = function genderFilter(select) {
+  var gender = select.value.toUpperCase();
+  var results = bathroomList.children;
+
+  var _iterator2 = _createForOfIteratorHelper(results),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var result = _step2.value;
+
+      if (gender === 'ALL' || result.dataset.gender.toUpperCase() === gender) {
+        result.classList.remove('hidden');
+      } else {
+        result.classList.add('hidden');
+      }
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
 };
 
 /***/ }),
