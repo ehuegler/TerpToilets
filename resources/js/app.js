@@ -40,3 +40,8 @@ genderFilter = function (select) {
     }
   }
 }
+
+toggleSortOrder = function () {
+  bathroomList.classList.toggle('flex-col');
+  bathroomList.classList.toggle('flex-col-reverse');
+}
