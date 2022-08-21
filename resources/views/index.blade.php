@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <h1>
+        <h1 class="mt-2">
             Gender
         </h1>
         <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2">
@@ -35,7 +35,7 @@
             <option value="">Male</option>
         </select>
 
-        <h1>
+        <h1 class="mt-2">
             Sort
         </h1>
 
