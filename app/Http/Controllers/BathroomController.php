@@ -111,10 +111,9 @@ class BathroomController extends Controller
      */
     public function show($id)
     {
-        $bathroom = Bathroom::find($id);
+        $bathroom = Bathroom::with('reviews')->where('id', '=', $id)->get();
         $data = array(
-            'bathroom' => $bathroom,
-            'reviews' => $bathroom->reviews
+            'bathroom' => $bathroom[0]
         );
 
         return view('bathrooms.bathroom')->with($data);
