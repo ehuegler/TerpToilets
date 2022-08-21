@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bathroom extends Model
 {
     public function reviews() {
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany('App\Models\Review')->orderBy('rating', 'desc');
     }
 
     public function building() {
