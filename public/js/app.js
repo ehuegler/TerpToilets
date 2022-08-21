@@ -75,6 +75,11 @@ genderFilter = function genderFilter(select) {
   }
 };
 
+toggleSortOrder = function toggleSortOrder() {
+  bathroomList.classList.toggle('flex-col');
+  bathroomList.classList.toggle('flex-col-reverse');
+};
+
 /***/ }),
 
 /***/ "./resources/css/app.css":

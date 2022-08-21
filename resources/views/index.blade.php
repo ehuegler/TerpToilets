@@ -40,13 +40,13 @@
             Sort
         </h1>
 
-        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2">
+        <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2" onchange="toggleSortOrder(this)">
             <option value="">Ascending</option>
             <option value="">Descending</option>
         </select>
 
     </div>
-    <div class="" id="bathrooms">
+    <div class="flex flex-col" id="bathrooms">
 
         @foreach ($bathrooms as $bathroom)
             <div class="w-full rounded drop-shadow bg-white p-2 my-2 flex flex-row justify-between"
