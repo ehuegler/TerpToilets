@@ -621,6 +621,9 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .block {
   display: block;
 }
