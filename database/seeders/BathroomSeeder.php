@@ -36,7 +36,7 @@ class BathroomSeeder extends Seeder
         }
         
         // to speed up for testing, do not need to seed all bathrooms
-        return;
+        // return;
 
         // Gender Neutral Bathrooms
         $csv = fopen(base_path('database/data/gender-neutral-bathrooms.csv'), 'r');

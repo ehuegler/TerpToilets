@@ -10,7 +10,7 @@
         <div onblur="console.log('howdy');">
             <input type="text" id="buildingInput" onkeyup="buildingSearch()" onfocus="openBuildingResults()"
                 placeholder="&#xf002; Search Buildings" class="w-full bg-bg border border-slate-300 rounded p-2"
-                value="{{$selectedBuilding}}">
+                value="{{ $selectedBuilding }}">
             <div class="bg-bg rounded p-2 border border-slate-300 my-2 hidden" id="buildingResults">
                 @if (count($buildings) > 0)
                     @foreach ($buildings as $building)
@@ -32,9 +32,9 @@
             onchange="genderFilter(this)">
             <option value="all">All</option>
             <option value="family">Family</option>
-            <option value="female">Female</option>
+            <option value="womens">Female</option>
             <option value="Gender Neutral">Gender Neutral</option>
-            <option value="male">Male</option>
+            <option value="mens">Male</option>
         </select>
 
         <h1 class="mt-2">
@@ -57,24 +57,24 @@
                     <h2><a href="/bathrooms/{{ $bathroom->id }}">{{ $bathroom->name }}</a></h2>
                     <p>
                         @if ($bathroom->rating == 0)
-                            No Rating Available
+                            Not Yet Rated
                         @else
                             {{ $bathroom->rating }}
-                            {{-- Start Rating --}}
-                            @for ($i = 0; $i < 5; $i++)
-                                @if ($bathroom->rating - $i >= 0.9)
-                                    {{-- Full Start --}}
-                                    <i class="fas fa-star"> </i>
-                                @elseif ($bathroom->rating - $i > 0.15)
-                                    {{-- Half Start --}}
-                                    <i class="fas fa-star-half-alt"> </i>
-                                @else
-                                    {{-- Empty Start --}}
-                                    <i class="far fa-star"> </i>
-                                @endif
-                            @endfor
-                            {{-- End Rating --}}
                         @endif
+                        {{-- Start Rating --}}
+                        @for ($i = 0; $i < 5; $i++)
+                            @if ($bathroom->rating - $i >= 0.9)
+                                {{-- Full Start --}}
+                                <i class="fas fa-star"> </i>
+                            @elseif ($bathroom->rating - $i > 0.15)
+                                {{-- Half Start --}}
+                                <i class="fas fa-star-half-alt"> </i>
+                            @else
+                                {{-- Empty Start --}}
+                                <i class="far fa-star"> </i>
+                            @endif
+                        @endfor
+                        {{-- End Rating --}}
                     </p>
                     <p>
                         {{ $bathroom->building->short === '' ? 'Room' : $bathroom->building->short }}
