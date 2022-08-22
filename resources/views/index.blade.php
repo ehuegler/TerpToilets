@@ -43,8 +43,8 @@
 
         <select name="" id="" class="bg-bg w-full border border-slate-300 rounded p-2"
             onchange="toggleSortOrder(this)">
-            <option value="">Ascending</option>
             <option value="">Descending</option>
+            <option value="">Ascending</option>
         </select>
 
     </div>
