@@ -36,6 +36,7 @@
 
         <form method="POST" action="/store" accept-charset="UTF-8">
 
+            @csrf
             <input type="hidden" id="user" name="user" value="{{ cas()->user() }}">
 
             <div class="my-4">
@@ -69,6 +70,8 @@
                 <textarea class="w-full bg-bg border border-slate-300 rounded p-2" placeholder="Write your review here..."
                     name="description" cols="50" rows="10" id="description"></textarea>
             </div>
+            
+            <input type="submit" class="text-white bg-umd rounded p-2 font-crimson drop-shadow" value="Submit">
 
         </form>
 
