@@ -17,11 +17,11 @@ class BathroomController extends Controller
      */
     public function index(Request $request)
     {
-        $num = $request->num ?? 10;
+        $num = $request->num ?? 25;
 
         if ($request->building !== null) {
             $bathrooms = Bathroom::with('building')
-                ->where('rating', '!=', '0')
+                // ->where('rating', '!=', '0')
                 ->whereRelation('building', 'id', '=', $request->building)
                 ->orderby('rating', 'desc')
                 ->orderBy('name', 'asc')
@@ -29,7 +29,7 @@ class BathroomController extends Controller
             $selected = Building::find($request->building)->name;
         } else {
             $bathrooms = Bathroom::with('building')
-                ->where('rating', '!=', '0')
+                // ->where('rating', '!=', '0')
                 ->orderby('rating', 'desc')
                 ->orderBy('name', 'asc')
                 ->take($num)
