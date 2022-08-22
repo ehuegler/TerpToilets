@@ -3,11 +3,11 @@
 let buildingList = document.getElementById('buildingResults');
 let bathroomList = document.getElementById('bathrooms');
 
-toggleBuildingResults = function () {
-  buildingList.classList.toggle('hidden');
+openBuildingResults = function () {
+  buildingList.classList.remove('hidden');
 }
 
-search = function () {
+buildingSearch = function () {
   buildingList.classList.remove('hidden');
 
   let input = document.getElementById('buildingInput');
@@ -25,7 +25,18 @@ search = function () {
 }
 
 buildingClicked = function (building) {
-  console.log(building.textContent)
+  // change placeholder
+  document.getElementById('buildingInput').value = building.textContent.trim();
+  buildingList.classList.add('hidden');
+
+  select = document.getElementById('roomList');
+  select.textContent = '';
+  for (let bathroom of JSON.parse(building.dataset.bathrooms)) {
+    let opt = document.createElement('option');
+    opt.value = bathroom.id
+    opt.innerText = bathroom.roomnum + " (" + bathroom.gender + ")"
+    select.appendChild(opt)
+  }
 };
 
 genderFilter = function (select) {

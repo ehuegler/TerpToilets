@@ -17,11 +17,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var buildingList = document.getElementById('buildingResults');
 var bathroomList = document.getElementById('bathrooms');
 
-toggleBuildingResults = function toggleBuildingResults() {
-  buildingList.classList.toggle('hidden');
+openBuildingResults = function openBuildingResults() {
+  buildingList.classList.remove('hidden');
 };
 
-search = function search() {
+buildingSearch = function buildingSearch() {
   buildingList.classList.remove('hidden');
   var input = document.getElementById('buildingInput');
   var query = input.value.toUpperCase();
@@ -48,19 +48,40 @@ search = function search() {
 };
 
 buildingClicked = function buildingClicked(building) {
-  console.log(building.textContent);
+  // change placeholder
+  document.getElementById('buildingInput').value = building.textContent.trim();
+  buildingList.classList.add('hidden');
+  select = document.getElementById('roomList');
+  select.textContent = '';
+
+  var _iterator2 = _createForOfIteratorHelper(JSON.parse(building.dataset.bathrooms)),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var bathroom = _step2.value;
+      var opt = document.createElement('option');
+      opt.value = bathroom.id;
+      opt.innerText = bathroom.roomnum + " (" + bathroom.gender + ")";
+      select.appendChild(opt);
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
 };
 
 genderFilter = function genderFilter(select) {
   var gender = select.value.toUpperCase();
   var results = bathroomList.children;
 
-  var _iterator2 = _createForOfIteratorHelper(results),
-      _step2;
+  var _iterator3 = _createForOfIteratorHelper(results),
+      _step3;
 
   try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var result = _step2.value;
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var result = _step3.value;
 
       if (gender === 'ALL' || result.dataset.gender.toUpperCase() === gender) {
         result.classList.remove('hidden');
@@ -69,9 +90,9 @@ genderFilter = function genderFilter(select) {
       }
     }
   } catch (err) {
-    _iterator2.e(err);
+    _iterator3.e(err);
   } finally {
-    _iterator2.f();
+    _iterator3.f();
   }
 };
 

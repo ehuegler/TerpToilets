@@ -9,6 +9,6 @@
 
     {{-- button --}}
     <div class="px-4 py-1 my-auto bg-white text-umd rounded hover:bg-bg focus:bg-bg">
-        <a href="/review">LEAVE A REVIEW</a>
+        <a href="/review{{ $link ?? '' }}">LEAVE A REVIEW</a>
     </div>
 </nav>

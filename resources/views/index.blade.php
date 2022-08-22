@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['link' => ''])
 @section('title', 'Terp Toilets')
 
 @section('content')
@@ -8,12 +8,13 @@
             Building
         </h1>
         <div onblur="console.log('howdy');">
-            <input type="text" id="buildingInput" onkeyup="search()" onfocus="toggleBuildingResults()"
-                placeholder="&#xf002; Search Buildings" class="w-full bg-bg border border-slate-300 rounded p-2">
+            <input type="text" id="buildingInput" onkeyup="buildingSearch()" onfocus="openBuildingResults()"
+                placeholder="&#xf002; Search Buildings" class="w-full bg-bg border border-slate-300 rounded p-2"
+                value="{{$selectedBuilding}}">
             <div class="bg-bg rounded p-2 border border-slate-300 my-2 hidden" id="buildingResults">
                 @if (count($buildings) > 0)
                     @foreach ($buildings as $building)
-                        <div id="{{ $building->id }}" onclick="buildingClicked(this)" class="py-1">
+                        <div id="{{ $building->id }}" class="py-1">
                             <a href="/?building={{ $building->id }}">{{ $building->name }}
                                 {{ $building->short != '' ? '(' . $building->short . ')' : '' }}</a>
                         </div>
@@ -108,7 +109,7 @@
             Something went wrong, please try again later...
         </div>
     @else
-        @if ($selectedBuilding == 'none')
+        @if ($selectedBuilding == '')
             <h1 class="bg-white rounded p-2 drop-shadow mb-8 text-center">
                 <a href="/?num={{ count($bathrooms) + 10 }}">Load More</a>
             </h1>

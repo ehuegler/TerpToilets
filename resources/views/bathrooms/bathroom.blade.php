@@ -1,4 +1,4 @@
-@extends('.layouts.app')
+@extends('.layouts.app', ['link' => ('?id=' . $bathroom->id)])
 
 @section('content')
     <div class="bg-white rounded drop-shadow p-2 my-4 text-center">

@@ -17,7 +17,7 @@
 
 <body>
 
-    @include('inc.header')
+    @include('inc.header', ['link' => $link])
 
     <div class="mx-auto px-4 container max-w-[600px]">
         @include('inc.messages')
