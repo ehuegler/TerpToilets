@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bathroom;
 use App\Models\Building;
 use App\Models\Review;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class BathroomController extends Controller
@@ -33,7 +34,7 @@ class BathroomController extends Controller
                 ->orderBy('name', 'asc')
                 ->take($num)
                 ->get();
-            $selected = 'none';
+            $selected = '';
         }
 
         $data = array(
@@ -44,9 +45,20 @@ class BathroomController extends Controller
         return view('index')->with($data);
     }
 
-    public function review()
+    public function review(Request $request)
     {
-        return view('review');
+        $selected = '';
+        if ($request->id != null) {
+            $selected = Bathroom::find($request->id);
+        }
+        
+
+        $data = array(
+            'buildings' => Building::with('bathrooms')->has('bathrooms')->orderBy('name')->get(),
+            'currBathroom' => $selected,
+        );
+
+        return view('review')->with($data);
     }
 
     /**
@@ -67,20 +79,26 @@ class BathroomController extends Controller
      */
     public function store(Request $request)
     {
-
         // validate form results
         $this->validate($request, [
             'id' => 'required',
+            'user' => 'required',
             'rating' => 'required',
         ]);
-        // need to make sure the id is a number!!!
-        // also convert rating to a number as well? seems like something takes care of it automagically
+
+        // validate valid bathroom
+        if (Bathroom::find($request->input('id') == null)) {
+            return redirect('/review')->with('error', 'Bathroom does not exist... please try again');
+        }
 
         // upload review
+        $bathroom = Bathroom::find($request->input('id'));
+
         $review = new Review;
-        $review->bathroom_id = $request->input('id');
+        $review->bathroom()->associate($bathroom);
         $review->rating = $request->input('rating');
         $review->author = $request->input('author');
+        $review->user = $request->input('user');
         $review->body = $request->input('description');
 
         // set status messages
@@ -89,8 +107,7 @@ class BathroomController extends Controller
             $message = 'Review Added Successfully';
 
             // if successful we also need to update the bathroom's rating
-            $bathroom = $review->bathroom;
-            $bathroom->rating = BathroomController::get_average($bathroom->id);
+            $bathroom->rating = BathroomController::get_average($bathroom);
             $bathroom->save();
         } else {
             $status = 'error';
