@@ -54,7 +54,7 @@ class BathroomSeeder extends Seeder
                 continue;
             }
             
-            $name = $building->name . "Gender Neutral Bathroom";
+            $name = $building->name . " Gender Neutral Bathroom";
             
             $bathroom = new Bathroom;
             $bathroom->roomnum = $data[2];
@@ -81,7 +81,7 @@ class BathroomSeeder extends Seeder
                 continue;
             }
             
-            $name = $building->name . "Men's Bathroom";
+            $name = $building->name . " Men's Bathroom";
             
             $bathroom = new Bathroom;
             $bathroom->roomnum = $data[2];
@@ -108,7 +108,7 @@ class BathroomSeeder extends Seeder
                 continue;
             }
 
-            $name = $building->name . "Women's Bathroom";
+            $name = $building->name . " Women's Bathroom";
 
             $bathroom = new Bathroom;
             $bathroom->roomnum = $data[2];
