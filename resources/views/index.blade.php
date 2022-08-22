@@ -84,6 +84,8 @@
                         @elseif ($bathroom->gender == 'Womens')
                             <i class="fas fa-person-dress"></i>
                         @elseif ($bathroom->gender == 'Family')
+                            <i class="fas fa-person"></i>
+                            <i class="fas fa-child"></i>
                             <i class="fas fa-person-dress"></i>
                         @elseif ($bathroom->gender == 'Gender Neutral')
                             <i class="fas fa-person-half-dress"></i>

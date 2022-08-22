@@ -17,7 +17,7 @@ class BathroomController extends Controller
      */
     public function index(Request $request)
     {
-        $num = $request->num ?? 10;
+        $num = $request->num ?? 25;
 
         if ($request->building !== null) {
             $bathrooms = Bathroom::with('building')
