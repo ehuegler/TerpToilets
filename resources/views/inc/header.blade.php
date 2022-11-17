@@ -3,7 +3,7 @@
     <div class="flex flex-row text-white">
         <a href="/"><img class="h-16 w-16 mr-1" src="/img/logo.png" alt="Terp Toilets Logo"></a>
         <a href="/" class="text-3xl m-auto tracking-tight">
-            TOILETS
+            Terp Toilets
         </a>
     </div>
 
