@@ -56,7 +56,7 @@
                     @if ($review->author !== null)
                         {{ $review->author }}
                     @else
-                        Anonymis
+                        Anonymous
                     @endif
                     {{-- Start Rating --}}
                     &nbsp;&nbsp;&nbsp;
